@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor</title>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="src/script.js"></script>
+    <meta charset="utf-8"/>
+</head>
+<body>
+    <div align="center">
+        <h1>Reproductor de video</h1>
+        <h3>Elige el formato de video</h3>
+    </div>
+    
+    <div align="center">
+    <video id="vid" height="240">
+        <source src='vid/video.mp4' type="video/mp4"/>
+    </video>
+    <br>
+
+    <button id="play"> Play </button>
+
+    <button id="pausa"> Pause </button>
+
+    <button id="vol+"> + </button>    
+
+    <button id="vol-"> - </button>
+
+    <button id='mute'>Mute</button>
+
+    <button id='adelantar'> '>>' </button>
+
+    <button id='retrasar'> '<<' </button>
+
+    <br><br>
+    <select id="opc" name="opc">
+        <option value="1">MP4</option>
+        <option value="2">OGV</option>
+        <option value="3">WEBM</option>
+    </select>
+
+</div>
+
+</body>
+
+</html>
