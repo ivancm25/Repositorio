@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ambilight</title>
+  </head>
+
+  <style type="text/css">
+    body {
+      background: black;
+      display: flex;
+      padding: 10vh 5vw;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .ambilight-image {
+      max-width: 500px;
+      border-radius: 5px;
+      position: relative;
+    }
+    img {
+      width: 100%;
+    }
+    .imgcon {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .light {
+      width: 105%;
+      height: 105%;
+      opacity: 1;
+      filter: blur(25px);
+      position: absolute;
+      top: -10px;
+      bottom: 0px;
+      transform: scale(1.10);
+      z-index: -1;
+      animation-name: light;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+    }
+    @keyframes light {
+        from {
+            transform: scale(1.10);
+        }
+        50% {
+            transform: scale(1.70);
+        }
+        to {
+            transform: scale(1.10);
+        }
+    }
+  </style>
+
+  <body>
+    <div class="ambilight-image">
+      <div class="imgcon">
+        <img
+          src="img/img.jpg"
+          alt="Image"
+          class="image"
+        />
+      </div>
+      <img
+        src="img/img.jpg"
+        alt=""
+        class="light"
+      />
+    </div>
+  </body>
+</html>
