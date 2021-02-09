@@ -1,0 +1,50 @@
+body {
+    text-align: center;
+    align-items: center;
+}
+
+div {
+    text-align: center;
+}
+
+div h1 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: blue;
+}
+
+div p {
+    font-size: 200%;
+}
+
+#palabras {
+    text-align: center;
+    align-items: center;
+    width: 80%;
+    height: 300px;
+    margin: auto; 
+}
+
+div.divSil {
+    text-align: center;
+    height: 150px;
+}
+
+div.divCompleto {
+    text-align: center;
+    height: 150px;
+    background-color: rgb(255, 225, 89);
+
+}
+
+table, th, td {
+    border: 1px solid black;
+    background-color: aqua;
+}
+
+.tabla {
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}

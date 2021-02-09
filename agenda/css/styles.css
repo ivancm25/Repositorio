@@ -1,0 +1,29 @@
+body{  
+    background-color: khaki;
+}
+
+.divagenda, .divform{ 
+    float: left;
+    margin-top: 20px;
+    width: 50%;
+}
+
+h1 {
+    margin-top: 30px;
+}
+
+button {
+    margin: auto
+}
+
+#agenda {
+    width: 60%;
+    text-align: center;
+    padding: 10;
+    margin: auto;
+}
+
+#agenda th {
+    background-color: black;
+    color: blanchedalmond;
+}

@@ -1,0 +1,25 @@
+#text div {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  border: 1px dashed white;
+  display: inline-block;
+  margin: 0;
+}
+
+#text {
+  width: 614px;
+  height: 614px;
+  background: grey;
+  border: 5px solid black;
+  margin: auto;
+}
+
+#images {
+  width: 100%;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+}

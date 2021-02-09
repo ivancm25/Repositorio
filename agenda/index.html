@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="src/script.js"></script>
+</head>
+<body>
+    
+    <div class="divagenda" align="center">
+        <h1>Agenda de contactos</h1><br>
+        <table id="agenda" border="1" cellpadding="10">
+            <tr>
+                <th>Nombre</th>
+                <th>Número móvil</th>
+            </tr>
+        </table>
+    
+        <br>
+    
+        <button id="ordenarNombre">Ordenar por nombre</button>
+    </div>
+
+    <div class="divform" align="center">
+        <h1>Añade un contacto</h1><br>
+        <form name="formulario" id="formulario">
+            <label for="nombre"> <strong>Nombre:</strong> </label><br>
+            <input type="text" id="nombre" name="nombre" placeholder="Introduce el nombre" autofocus/><br><br>
+
+            <label for="num"> <strong>Número móvil:</strong> </label><br>
+            <input type="text" id="num" name="num" placeholder="Introduce el número" /><br><br>
+
+            <input type="reset" value="Limpiar" id="reset"/>
+            <input type="button" value="Añadir" id="anadir"/>
+        </form>
+    </div>
+    
+</body>
+</html>

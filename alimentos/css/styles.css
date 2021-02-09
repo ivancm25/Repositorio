@@ -1,0 +1,20 @@
+h1 {
+    margin-top: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+div {
+    margin-top: 25px;
+}
+
+table {
+    text-align: center;
+}
+
+td div{
+    width:270px;
+    min-height: 250px;
+    margin: auto;
+    border:1px solid black;
+    padding: 5px;
+}
