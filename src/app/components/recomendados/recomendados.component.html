@@ -1,0 +1,15 @@
+<div id="cont-recomendados">
+
+  <h2>Alojamientos recomendados</h2>
+
+  <div class="card" *ngFor="let oferta of recomendados">
+    <img src={{oferta.rutaimg}} class="card-img-top" alt={{oferta.titulo}}>
+    <div class="card-body">
+      <h3 class="card-title">{{oferta.titulo}}</h3>
+      <p class="card-text">{{oferta.provincia}}</p>
+      <p class="card-text">{{oferta.descripcion}}</p>
+      <a href="#" class="btn btn-primary">Reserva</a>
+    </div>
+  </div>
+
+</div>

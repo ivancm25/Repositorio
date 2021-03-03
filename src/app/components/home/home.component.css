@@ -1,0 +1,72 @@
+div#contenedor {
+  display: grid;
+  grid-template-areas: "header header"
+                      "submenu submenu"
+                      "banner banner"
+                      "ofertas alojamientos"
+                      "footer footer";
+}
+
+p {
+  margin: 0;
+}
+
+app-header {
+  grid-area: header;
+}
+
+app-submenu {
+  grid-area: submenu;
+}
+
+app-ofertas {
+  grid-area: ofertas;
+}
+
+app-recomendados {
+  grid-area: alojamientos;
+}
+
+app-footer {
+  grid-area: footer;
+}
+
+div.content {
+  width: 70%;
+  margin: 0px 5vw 30px 15vw;
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-areas: "banner banner"
+                       "ofertas alojamientos";
+  justify-content: space-between;
+}
+
+div#banner {
+  grid-area: banner;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+h1#frase-foto {
+  font-family: 'Anton', sans-serif;
+  font-size: 10vw;
+  margin: 10vh 5vw 10vh 3vw;
+  width: 50%;
+  line-height: 1;
+  text-align: center;
+}
+
+
+
+/* Pantalla mediana */
+@media screen and (max-width:1024px) {
+  div.content {
+    grid-template-areas: "banner banner"
+                       "ofertas ofertas"
+                       "alojamientos alojamientos";
+  }
+}
+
+

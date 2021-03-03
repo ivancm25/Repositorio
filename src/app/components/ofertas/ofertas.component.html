@@ -1,0 +1,15 @@
+<div id="cont-ofertas">
+
+  <h2>Ofertas destacadas</h2>
+
+  <div class="card" *ngFor="let oferta of catalogoOfer">
+    <img src={{oferta.rutaimg}} class="card-img-top" alt={{oferta.nombreCiudad}}>
+    <div class="card-body">
+      <h3 class="card-title">{{oferta.nombreCiudad}}</h3>
+      <p class="card-text">{{oferta.provincia}}</p>
+      <p class="card-text">{{oferta.descripcion}}</p>
+      <a href="#" class="btn btn-primary">Reserva</a>
+    </div>
+  </div>
+
+</div>

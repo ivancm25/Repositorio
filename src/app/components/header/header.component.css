@@ -1,0 +1,46 @@
+.toolbar {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  z-index: 100;
+}
+
+h1#titulo {
+  padding-top: 10px;
+  flex: 1;
+  margin-left: 10px;
+  font-weight:bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: xx-large;
+}
+
+.toolbar img {
+  margin-left: 15vw;
+  width: 50px;
+}
+
+.toolbar button#login {
+  justify-content: flex-end;
+  margin-right: 15vw;
+  margin-left: 5px;
+}
+
+div#modalLogin, div#modalRegistro {
+  text-align: center;
+}
+
+div#modalLogin input, div#modalRegistro input {
+  margin-bottom: 10px;
+}
+
+div.modal-header {
+  background-color: lightskyblue;
+}
+

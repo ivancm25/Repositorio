@@ -1,0 +1,16 @@
+div#submenu {
+  background-color: rgb(255, 128, 9);
+  color: white;
+}
+
+li a {
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-size: large;
+  color: white;
+}
+
+li a:hover {
+  color: black;
+}
+

@@ -1,0 +1,83 @@
+/*div#contenedor {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 10vh 10vh 20vh 25vh 25vh 10vh;
+  grid-template-areas: "header header"
+                      "submenu submenu"
+                      "banner banner"
+                      "ofertas alojamientos"
+                      "footer footer";
+}*/
+
+p {
+  margin: 0;
+}
+
+app-submenu {
+  grid-area: submenu;
+}
+
+app-ofertas {
+  grid-area: ofertas;
+}
+
+app-recomendados {
+  grid-area: alojamientos;
+}
+
+div.content {
+  width: 70%;
+  margin: 0px 5vw 30px 15vw;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+div#banner {
+  grid-area: banner;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+h1#frase-foto {
+  font-family: 'Anton', sans-serif;
+  font-size: 10vw;
+  margin: 10vh 5vw 10vh 3vw;
+  width: 50%;
+  line-height: 1;
+  text-align: center;
+}
+
+
+
+/* Responsive Styles  */
+@media screen and (max-width: 767px) {
+  div#contenedor {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 10vh 10vh 20vh 25vh 25vh 10vh;
+    grid-template-areas: "header header"
+                        "submenu submenu"
+                        "banner banner"
+                        "ofertas alojamientos"
+                        "footer";
+
+    background-color: aliceblue;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  div#contenedor {
+    display: grid;
+
+    grid-template-columns: 100%;
+    grid-template-rows: 10vh 20vh 30vh 30vh 10vh ;
+    grid-template-areas: "header"
+                        "banner"
+                        "ofertas"
+                        "alojamientos"
+                        "footer";
+  }
+
+
+}
