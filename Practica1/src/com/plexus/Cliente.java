@@ -47,11 +47,15 @@ public class Cliente {
 	public String getDni() {
 		return dni;
 	}
+	
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
 
 
 	@Override
 	public String toString() {
-		return "Cliente [dni=" + dni + ", nombre=" + nombre + ", apellidos=" + apellidos + ", edad=" + edad + "]";
+		return "dni:" + dni + "\nnombre:" + nombre + "\napellidos:" + apellidos + "\nedad:" + edad;
 	}
 	
 	

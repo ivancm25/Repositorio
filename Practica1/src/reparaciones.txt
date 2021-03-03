@@ -1,0 +1,30 @@
+ClienteDni:12345678A
+MatriculaVeh:7575KZA
+Descripcion:Cambio de la correa de distribución
+Fecha:2021-02-23
+TiempoDias:10
+TotalReparacion:500.0
+ClienteDni:45163972E
+MatriculaVeh:2881BVZ
+Descripcion:Cambio de la suspensión
+Fecha:2021-02-24
+TiempoDias:7
+TotalReparacion:300.0
+ClienteDni:22222222A
+MatriculaVeh:2884BVZ
+Descripcion:Cambio de embrague
+Fecha:2021-03-01
+TiempoDias:10
+TotalReparacion:51.0
+ClienteDni:34970660X
+MatriculaVeh:2222aaa
+Descripcion:Cambio del carburador
+Fecha:2021-03-02
+TiempoDias:15
+TotalReparacion:102.95
+ClienteDni:45163972E
+MatriculaVeh:2881BVZ
+Descripcion:Cambio de motor
+Fecha:2021-03-03
+TiempoDias:10
+TotalReparacion:150.95

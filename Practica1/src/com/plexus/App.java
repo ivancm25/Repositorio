@@ -24,11 +24,6 @@ public class App {
 		
 		int opcion = 0;
 		
-		//listaRep.stream().forEach(rep -> System.out.println(rep.toString()));
-		//System.out.println(listaRep);
-		
-		
-		
 		System.out.println("-------------------------------------------------------------------------------");
 		System.out.println("------------------------BIENVENIDO AL TALLER-----------------------------------");
 		System.out.println("-------------------------------------------------------------------------------");
@@ -53,7 +48,9 @@ public class App {
 			System.out.println("------------------- 13. Buscar vehículo");
 			System.out.println("----------------- 14. Buscar reparación");
 			System.out.println("---------------------- 15. Ver informes");
-			System.out.println("----------------------------- 16. Salir");
+			System.out.println("---------- 16. Cargar datos de archivos");
+			System.out.println("--------- 17. Guardar datos de archivos");
+			System.out.println("----------------------------- 18. Salir");
 			System.out.println("---------------------------------------");
 			System.out.println("Introduce el número correspondiente a la acción");
 			
@@ -68,7 +65,7 @@ public class App {
 			}
 			
 			
-			switch(opcion) {
+			switch(opcion) {			
 			case 1:	anadirCliente();
 				break;
 				
@@ -116,13 +113,21 @@ public class App {
 				
 			case 15: menuInformes();
 				break;
+				
+			case 16: new Ficheros().cargar();
+				break;
+				
+			case 17: new Ficheros().guardar();
+				break;
 			
-			case 16:
+			case 18:
 				System.out.println("Hasta luego");
 				break;
+				
+			default: opcion = 18;
 			}
 			
-		} while (opcion != 15);
+		} while (opcion != 18);
 		
 		
 	}

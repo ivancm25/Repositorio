@@ -87,9 +87,9 @@ public class Reparacion {
 	
 	@Override
 	public String toString() {
-		return "Reparacion [clienteDni=" + clienteDni + ", matriculaVeh=" + matriculaVeh + ", descripcion="
-				+ descripcion + ", fecha=" + fecha + ", tiempoDias=" + tiempoDias + ", totalReparacion="
-				+ totalReparacion + "]";
+		return "ClienteDni:" + clienteDni + "\nMatriculaVeh:" + matriculaVeh + "\nDescripcion:"
+				+ descripcion + "\nFecha:" + fecha + "\nTiempoDias:" + tiempoDias + "\nTotalReparacion:"
+				+ totalReparacion;
 	}
 	
 	

@@ -1,0 +1,15 @@
+Matricula:7474ICM
+Marca:Seat
+Modelo:Toledo
+Año:1995
+Color:blanco
+Matricula:2881BVZ
+Marca:Hyundai
+Modelo:Elantra
+Año:1998
+Color:Verde
+Matricula:2222ABC
+Marca:Peugeot
+Modelo:205 GT
+Año:1993
+Color:Negro

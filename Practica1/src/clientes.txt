@@ -1,0 +1,24 @@
+dni:22222222A
+nombre:Antela
+apellidos:Losada
+edad:49
+dni:45163972E
+nombre:Iván
+apellidos:Cuiñas
+edad:21
+dni:12345678B
+nombre:Ivan
+apellidos:Dorado
+edad:50
+dni:11112222S
+nombre:José Manuel
+apellidos:Cuiñas Cid
+edad:42
+dni:12345678A
+nombre:Juan
+apellidos:Pérez
+edad:32
+dni:33334444A
+nombre:Pepe
+apellidos:Perez
+edad:25

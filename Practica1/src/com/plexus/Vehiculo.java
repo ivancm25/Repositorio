@@ -59,13 +59,17 @@ public class Vehiculo {
 		return matricula;
 	}
 
-
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
 
 	@Override
 	public String toString() {
-		return "Vehiculo -> Matricula => " + matricula + "\n Marca => " + marca + "\n Modelo => " + modelo + "\n Año => " + year
-				+ "\n Color => " + color + "\n\n";
+		return "Matricula:" + matricula + "\nMarca:" + marca + "\nModelo:" + modelo + "\nAño:" + year
+				+ "\nColor:" + color;
 	}
+
+	
 	
 	
 	
