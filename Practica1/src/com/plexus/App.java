@@ -121,7 +121,7 @@ public class App {
 				break;
 			
 			case 18:
-				System.out.println("Hasta luego");
+				System.out.println("Hasta luego!");
 				break;
 				
 			default: opcion = 18;
