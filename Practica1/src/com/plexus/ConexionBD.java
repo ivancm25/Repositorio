@@ -1,13 +1,9 @@
 package com.plexus;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -112,21 +108,12 @@ public class ConexionBD {
      * Cargar propiedades.
      */
     private static void cargarPropiedades() {
-        try {
-            //FileReader fr = new FileReader("Z:/config.inc");
-            //InputStream fr = ConexionBD.class.getResourceAsStream("/com/acarballeira/recursos/config.inc");
+          user = "root";
+          password = "";
+          db = "practica1";
+          port = "3306";
+          host = "localhost";            
             
-            //Properties propiedades = new Properties();
-            //propiedades.load(fr);
-            user = "root";
-            password = "";
-            db = "practica1";
-            port = "3306";
-            host = "localhost";            
-             
-        }catch( NullPointerException  e) {            
-            LOG.info("Non se pode cargar o ficheiro de propiedades" + e.getMessage());
-        }
     }
 
 }

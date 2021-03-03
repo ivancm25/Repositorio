@@ -47,7 +47,6 @@ public class VehiculoDAO {
 	public boolean save(Vehiculo t) {
 		boolean completado = false;
 		con = ConexionBD.obterConexion();
-		lista = new ArrayList();
 		
 		//lista.add(t);
 		

@@ -1,8 +1,5 @@
 package com.plexus;
 
-import java.sql.Date;
-import java.time.LocalDate;
-
 public class Reparacion {
 	
 	protected String clienteDni;
