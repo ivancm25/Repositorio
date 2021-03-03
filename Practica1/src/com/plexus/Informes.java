@@ -1,11 +1,6 @@
 package com.plexus;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -19,48 +14,12 @@ public class Informes {
 	public static List<Cliente> listaClientes;
 	public static List<Reparacion> listaRep;
 	
-	/** The con. */
-	Connection con;
 	
-	
-	public List<Cliente> informeCliEdad() {	
-		con = ConexionBD.obterConexion();
+	public void informeCliEdad() {	
 		
-		try {
-			Statement st;
-			st = con.createStatement();
-			
-			ResultSet rs = st.executeQuery("SELECT dni, nombre, apellidos, edad FROM clientes ORDER BY edad");
-
-			
-			while (rs.next()) {
-				Cliente c = new Cliente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4));
-				listaClientes.add(c);
-			}
-			
-			ConexionBD.devolverConexion(con);
-			
-		} catch (SQLException e) {
-			System.out.println("Error al obtener clientes" + e.getMessage());
-		}
+		Stream<Cliente> sc = cDAO.getAll().stream();
 		
-		Collections.sort(listaClientes, new AgeComparator());
-		
-		
-		return listaClientes;
-	}
-	
-	class AgeComparator implements Comparator<Cliente> {
-
-		public int compare(Cliente o1, Cliente o2) {
-
-			if (o1.edad == o2.edad)
-				return 0;
-			else if (o1.edad > o2.edad)
-				return 1;
-			else
-				return -1;
-		}
+		sc.sorted(Comparator.comparing(Cliente::getEdad)).forEach(System.out::println);
 	}
 	
 	

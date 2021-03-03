@@ -634,7 +634,7 @@ public class App {
 		}
 		
 		switch(opc) {
-		case 1: System.out.println(informes.informeCliEdad());
+		case 1: informes.informeCliEdad();
 			break;
 			
 		case 2: informes.cliMasRep();
