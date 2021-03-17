@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-alojamientos',

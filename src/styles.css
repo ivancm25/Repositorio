@@ -3,6 +3,10 @@
   padding: 0px;
 }
 
+:root {
+  --azul: #1976d2;
+}
+
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 

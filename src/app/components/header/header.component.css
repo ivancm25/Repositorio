@@ -3,11 +3,10 @@
   position: sticky;
   top: 0;
   left: 0;
-  right: 0;
   padding: 10px;
   display: flex;
   align-items: center;
-  background-color: #1976d2;
+  background-color: var(--azul);
   color: white;
   z-index: 100;
 }

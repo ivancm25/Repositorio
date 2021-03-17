@@ -2,7 +2,7 @@
   grid-area: footer;
   display: flex;
   width: 100%;
-  background-color: #1976d2;
+  background-color: var(--azul);
   text-align: center;
   justify-content: center;
   margin-top: 10px;
