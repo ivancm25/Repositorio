@@ -7,7 +7,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./alojamientos.component.css']
 })
 export class AlojamientosComponent implements OnInit {
-  public formGroup: FormGroup;
+  public formulario: FormGroup;
 
   constructor( private formBuilder: FormBuilder ) { }
 
@@ -15,8 +15,10 @@ export class AlojamientosComponent implements OnInit {
     this.buildForm();
   }
   private buildForm(){
-    this.formGroup = this.formBuilder.group({
-
+    this.formulario = this.formBuilder.group({
+      habitaciones: 1,
+      adultos: 1,
+      ninos: 1
     });
   }
 }

@@ -13,9 +13,9 @@
     </div>
 
     <div class="col-12 mt-4" id="datos-busqueda">
-      <form>
+      <form [formGroup]="formulario">
         <label for="habitaciones">Habitaciones</label>
-        <select id="habitaciones" class="m-3"  formControlName="habitaciones">
+        <select id="habitaciones" class="m-3" formControlName="habitaciones">
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -25,7 +25,7 @@
         </select>
 
         <label for="adultos">Adultos</label>
-        <select id="adultos" class="m-3">
+        <select id="adultos" class="m-3" formControlName="adultos">
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -34,8 +34,8 @@
           <option>6 o más</option>
         </select>
 
-        <label for="adultos">Adultos</label>
-        <select id="adultos" class="m-3">
+        <label for="ninos">Niños</label>
+        <select id="ninos" class="m-3" formControlName="ninos">
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -44,26 +44,6 @@
           <option>6 o más</option>
         </select>
       </form>
-
-      <form [formGroup]="formGroup">
-        <label for="registeredOn">Registered On</label>
-        <input name="registeredOn"
-              formControlName="registeredOn"
-              type="date" />
-        <label for="name">Name</label>
-        <input name="name"
-              formControlName="name"
-              type="text" />
-        <label for="email">E-mail</label>
-        <input name="email"
-              formControlName="email"
-              type="email" />
-        <label for="password">Password</label>
-        <input name="password"
-              formControlName="password"
-              type="password" />
-      </form>
-
     </div>
   </div>
 
