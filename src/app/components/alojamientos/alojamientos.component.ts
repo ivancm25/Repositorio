@@ -15,14 +15,8 @@ export class AlojamientosComponent implements OnInit {
     this.buildForm();
   }
   private buildForm(){
-    const dateLength = 10;
-    const today = new Date().toISOString().substring(0, dateLength);
-    const name = 'JOHN DOE';
     this.formGroup = this.formBuilder.group({
-      registeredOn: today,
-      name: name.toLowerCase(),
-      email: 'john@angular.io',
-      password: ''
+
     });
   }
 }
