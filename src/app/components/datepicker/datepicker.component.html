@@ -5,7 +5,7 @@
     <!-- Para seleccionar la fecha de ida y vuelta -->
     <mat-label>Selecciona fecha de ida y vuelta</mat-label> <!-- en el mismo elemento -->
     <mat-date-range-input [rangePicker]="picker">
-      <input matStartDate placeholder="Start date" autofocus>
+      <input matStartDate placeholder="Start date">
       <input matEndDate placeholder="End date">
     </mat-date-range-input>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -13,8 +13,7 @@
   </mat-form-field>
 </div>
 
-<form class="form-inline my-2 my-lg-0" id="lugar">
-  <input type="text" class="form-control mr-2" placeholder="Elige tu destino" aria-label="Destino" [(ngModel)]="texto">
-  <button class="btn btn-primary ml-2" type="submit">Buscar</button>
-  {{ texto }}
+<form class="form-inline my-7 my-lg-3" id="lugar">
+  <input type="text" class="form-control form-control-lg" placeholder="Elige tu destino" aria-label="Destino" id="destino">
+  <button class="btn btn-primary btn-group-lg" type="submit">Buscar</button>
 </form>

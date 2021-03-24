@@ -1,0 +1,91 @@
+div.ng-container {
+  width: 70%;
+  margin: 0px 5vw 30px 15vw;
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-areas: "busqueda busqueda frase"
+                       "busqueda busqueda filtros"
+                       "resultados resultados filtros";
+  justify-content: space-around;
+}
+
+app-recomendados {
+  grid-area: resultados;
+}
+
+div#frase {
+  grid-area: frase;
+  height: 130px;
+}
+
+div#busqueda {
+  grid-area: busqueda;
+  align-self: center;
+  justify-self: center;
+  background-color: rgb(240, 240, 240, 0.6);
+  margin: 15px;
+  padding: 15px;
+  border: 2px solid var(--azul);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+div#filtros {
+  grid-area: filtros;
+  background-color: rgb(240, 240, 240, 0.6);
+  border: 2px solid var(--azul);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2vw;
+  width: 20vw;
+  line-height: 1;
+  text-align: center;
+  margin-top: 20px;
+}
+
+input#inputBusqueda {
+  width: 400px;
+  height: 5vh;
+}
+
+button#btnBusqueda {
+  height: 5vh;
+}
+
+div.content-filtros {
+  padding: 15px;
+}
+
+div.content-filtros button{
+  margin-left: 30%;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: x-large;
+  background-color: var(--azul);
+  width: 100%;
+  color: white;
+  padding: 10px;
+}
+
+label {
+  font-size: large;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input:focus {
+  outline: none;
+}
+

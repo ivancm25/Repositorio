@@ -1,5 +1,55 @@
 <app-header></app-header>
 <app-submenu></app-submenu>
 
+<div class="ng-container">
+
+  <div id="frase">
+    <h1>Elige tu próximo vuelo</h1>
+  </div>
+
+
+  <div id="busqueda">
+    <app-datepicker></app-datepicker>
+  </div>
+
+  <div id="filtros">
+    <h2>Filtros destacados</h2>
+
+    <div class="content-filtros">
+
+      <div class="form-check">
+        <label class="form-check-label" for="piscina">Piscina</label>
+        <input class="form-check-input" type="checkbox" id="piscina"><br>
+
+        <label class="form-check-label" for="mascota">Permite mascotas</label>
+        <input class="form-check-input" type="checkbox" id="mascota"><br>
+
+        <label class="form-check-label" for="piscina">Permite fumadores</label>
+        <input class="form-check-input" type="checkbox" id="fumadores"><br>
+
+        <label class="form-check-label" for="playa">1ª línea de playa</label>
+        <input class="form-check-input" type="checkbox" id="playa"><br>
+      </div>
+
+      <hr>
+
+      <label for="maxPrecio" class="form-label">Máximo de precio</label>
+      <input type="range" class="form-range" id="maxPrecio">
+
+      <hr>
+
+      <button class="btn btn-primary" type="button" id="btnFiltros">Aplicar filtros</button>
+
+    </div>
+
+  </div>
+
+  <app-recomendados></app-recomendados>
+
+</div>
+
+
+
+
 
 <app-footer></app-footer>

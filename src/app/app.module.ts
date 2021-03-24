@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SubmenuComponent } from './components/submenu/submenu.component';
 import { OfertasComponent } from './components/ofertas/ofertas.component';
 import { RecomendadosComponent } from './components/recomendados/recomendados.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
@@ -37,6 +37,7 @@ import { VuelosComponent } from './components/vuelos/vuelos.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     MatNativeDateModule,
     BrowserAnimationsModule,

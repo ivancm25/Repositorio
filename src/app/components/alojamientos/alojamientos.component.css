@@ -22,6 +22,14 @@ div#busqueda {
   grid-area: busqueda;
   align-self: center;
   justify-self: center;
+  padding: 15px;
+  background-color: rgb(240, 240, 240, 0.6);
+  border: 2px solid var(--azul);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 div#filtros {
