@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Oferta } from '../../models/oferta';
 
 @Component({
@@ -22,7 +23,12 @@ export class OfertasComponent implements OnInit {
     this.catalogoOfer.push(santiago);
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  irOferta(): void {
+    // guardar datos
+    this.router.navigate(['/oferta-detalle']);
+  }
 }
 
 

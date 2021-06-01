@@ -19,6 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AlojamientosComponent } from './components/alojamientos/alojamientos.component';
 import { VuelosComponent } from './components/vuelos/vuelos.component';
+import { AlojamientoDetalleComponent } from './components/alojamiento-detalle/alojamiento-detalle.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { VuelosComponent } from './components/vuelos/vuelos.component';
     FooterComponent,
     HomeComponent,
     AlojamientosComponent,
-    VuelosComponent
+    VuelosComponent,
+    AlojamientoDetalleComponent
   ],
   imports: [
     BrowserModule,

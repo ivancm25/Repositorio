@@ -9,10 +9,13 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class AlojamientosComponent implements OnInit {
   public formulario: FormGroup;
 
+  loading = true;
+
   constructor( private formBuilder: FormBuilder ) { }
 
   public ngOnInit() {
     this.buildForm();
+    this.loading = false;
   }
   private buildForm(){
     this.formulario = this.formBuilder.group({
