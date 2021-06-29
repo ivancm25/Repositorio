@@ -5,13 +5,14 @@ import { HomeComponent } from './components/home/home.component';
 import { VuelosComponent } from './components/vuelos/vuelos.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http'
+import { AlojamientoDetalleComponent } from './components/alojamiento-detalle/alojamiento-detalle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'alojamientos', component: AlojamientosComponent, children: [
     { path: '', component: AlojamientosComponent },
-    //{ path: 'alojamiento', component: AlojamientoDetalleComponent },
+    { path: 'alojamiento', component: AlojamientoDetalleComponent },
   ] },
   { path: 'vuelos', component: VuelosComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full'}

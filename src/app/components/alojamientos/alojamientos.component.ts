@@ -15,7 +15,6 @@ export class AlojamientosComponent implements OnInit {
 
   public ngOnInit() {
     this.buildForm();
-    this.loading = false;
   }
   private buildForm(){
     this.formulario = this.formBuilder.group({
@@ -23,5 +22,6 @@ export class AlojamientosComponent implements OnInit {
       adultos: 1,
       ninos: 1
     });
+    this.loading = false;
   }
 }
