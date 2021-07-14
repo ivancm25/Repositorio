@@ -18,7 +18,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AlojamientosComponent } from './components/alojamientos/alojamientos.component';
-import { VuelosComponent } from './components/vuelos/casas-rurales.component';
+import { CasasRuralesComponent } from './components/casas-rurales/casas-rurales.component';
 import { AlojamientoDetalleComponent } from './components/alojamiento-detalle/alojamiento-detalle.component';
 
 
