@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AlojamientosComponent } from './components/alojamientos/alojamientos.component';
 import { HomeComponent } from './components/home/home.component';
-import { VuelosComponent } from './components/vuelos/vuelos.component';
+import { CasasRuralesComponent } from './components/vuelos/casas-rurales.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http'
 import { AlojamientoDetalleComponent } from './components/alojamiento-detalle/alojamiento-detalle.component';
@@ -14,7 +14,7 @@ const routes: Routes = [
     { path: '', component: AlojamientosComponent },
     { path: 'alojamiento', component: AlojamientoDetalleComponent },
   ] },
-  { path: 'vuelos', component: VuelosComponent },
+  { path: 'casas-rurales', component: CasasRuralesComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 

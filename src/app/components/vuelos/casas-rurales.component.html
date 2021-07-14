@@ -1,0 +1,98 @@
+<app-header></app-header>
+<app-submenu></app-submenu>
+
+
+<div class="d-flex justify-content-center" *ngIf="loading">
+  <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="ng-container">
+  <div id="frase">
+    <h1>Descubre donde pasarás tu próximo viaje</h1>
+  </div>
+
+  <div id="busqueda" class="m-5">
+    <div class="input-group">
+      <input type="text" id="inputBusqueda" class="form-control" placeholder="Introduce el destino de tu viaje"/>
+      <button class="btn btn-primary" type="button" id="btnBusqueda">Buscar</button>
+    </div>
+
+    <div class="col-12 mt-4" id="datos-busqueda">
+      <form [formGroup]="formulario">
+        <label for="habitaciones">Habitaciones</label>
+        <select id="habitaciones" class="m-3" formControlName="habitaciones">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6 o más</option>
+        </select>
+
+        <label for="adultos">Adultos</label>
+        <select id="adultos" class="m-3" formControlName="adultos">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6 o más</option>
+        </select>
+
+        <label for="ninos">Niños</label>
+        <select id="ninos" class="m-3" formControlName="ninos">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6 o más</option>
+        </select>
+      </form>
+    </div>
+  </div>
+
+  <div id="filtros">
+    <h2>Filtros destacados</h2>
+
+    <div class="content-filtros">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"/>
+        <label class="form-check-label bg-blue" for="flexSwitchCheckDefault">Mostrar sólo disponibles</label>
+      </div>
+
+      <hr />
+
+      <div class="form-check">
+        <label class="form-check-label" for="piscina">Piscina</label>
+        <input class="form-check-input" type="checkbox" id="piscina" /><br />
+
+        <label class="form-check-label" for="mascota">Permite mascotas</label>
+        <input class="form-check-input" type="checkbox" id="mascota" /><br />
+
+        <label class="form-check-label" for="piscina">Permite fumadores</label>
+        <input class="form-check-input" type="checkbox" id="fumadores" /><br />
+
+        <label class="form-check-label" for="playa">1ª línea de playa</label>
+        <input class="form-check-input" type="checkbox" id="playa" /><br />
+      </div>
+
+      <hr />
+
+      <label for="maxPrecio" class="form-label">Máximo de precio</label>
+      <input type="range" class="form-range" id="maxPrecio" />
+
+      <hr />
+
+      <button class="btn btn-primary" type="button" id="btnFiltros">
+        Aplicar filtros
+      </button>
+    </div>
+  </div>
+
+  <app-recomendados></app-recomendados>
+</div>
+
+<app-footer></app-footer>
