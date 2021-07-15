@@ -17,9 +17,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { AlojamientosComponent } from './components/alojamientos/alojamientos.component';
+import { ApartamentosComponent } from './components/apartamentos/apartamentos.component';
 import { CasasRuralesComponent } from './components/casas-rurales/casas-rurales.component';
 import { AlojamientoDetalleComponent } from './components/alojamiento-detalle/alojamiento-detalle.component';
+import { HotelesComponent } from './components/hoteles/hoteles.component';
 
 
 @NgModule({
@@ -32,9 +33,10 @@ import { AlojamientoDetalleComponent } from './components/alojamiento-detalle/al
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    AlojamientosComponent,
+    ApartamentosComponent,
     CasasRuralesComponent,
-    AlojamientoDetalleComponent
+    AlojamientoDetalleComponent,
+    HotelesComponent
   ],
   imports: [
     BrowserModule,

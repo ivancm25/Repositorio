@@ -2,14 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-alojamientos',
-  templateUrl: './alojamientos.component.html',
-  styleUrls: ['./alojamientos.component.css']
+  selector: 'app-apartamentos',
+  templateUrl: './apartamentos.component.html',
+  styleUrls: ['./apartamentos.component.css']
 })
-export class AlojamientosComponent implements OnInit {
+export class ApartamentosComponent implements OnInit {
   public formulario: FormGroup;
-
-  loading = true;
 
   constructor( private formBuilder: FormBuilder ) { }
 
@@ -22,6 +20,5 @@ export class AlojamientosComponent implements OnInit {
       adultos: 1,
       ninos: 1
     });
-    this.loading = false;
   }
 }

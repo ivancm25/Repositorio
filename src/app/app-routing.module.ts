@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlojamientosComponent } from './components/alojamientos/alojamientos.component';
+import { ApartamentosComponent } from './components/apartamentos/apartamentos.component';
 import { HomeComponent } from './components/home/home.component';
 import { CasasRuralesComponent } from './components/casas-rurales/casas-rurales.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http'
 import { AlojamientoDetalleComponent } from './components/alojamiento-detalle/alojamiento-detalle.component';
+import { HotelesComponent } from './components/hoteles/hoteles.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
-  { path: 'alojamientos', component: AlojamientosComponent, children: [
-    { path: '', component: AlojamientosComponent },
+  { path: 'apartamentos', component: ApartamentosComponent, children: [
+    { path: '', component: ApartamentosComponent },
     { path: 'alojamiento', component: AlojamientoDetalleComponent },
   ] },
   { path: 'casas-rurales', component: CasasRuralesComponent },
+  { path: 'hoteles', component: HotelesComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
