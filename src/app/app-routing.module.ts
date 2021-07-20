@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'apartamentos', component: ApartamentosComponent, children: [
     { path: '', component: ApartamentosComponent },
-    { path: 'alojamiento', component: AlojamientoDetalleComponent },
+    { path: 'apartamento', component: AlojamientoDetalleComponent },
   ] },
   { path: 'casas-rurales', component: CasasRuralesComponent },
   { path: 'hoteles', component: HotelesComponent },

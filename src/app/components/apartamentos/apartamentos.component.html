@@ -1,8 +1,37 @@
 <app-header></app-header>
 <app-submenu></app-submenu>
 
+<div class="apartamentoForm">
+  <h2>Búsqueda de apartamentos</h2>
+  <form [formGroup]="apartamentoForm" (ngSubmit)="guardar()">
+  <div class="form-group">
+    <label>Destino</label>
+    <input type="text" formControlName="nombre" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Provincia</label>
+    <select name="provincia" id="provincia" formControlName="provincia" class="form-control">
+      <option value="item.id" *ngFor="let item of apartamentos"></option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Huéspedes</label>
+    <input type="number" formControlName="huespedes" class="form-control">
+  </div>
+  <div class="form-check">
+    <label class="form-check-label" for="mascotas">Permite mascotas</label>
+    <input class="form-check-input" type="checkbox" id="mascotas" formControlName="mascotas"/><br />
 
-<div class="ng-container">
+    <label class="form-check-label" for="piscina">Permite fumadores</label>
+    <input class="form-check-input" type="checkbox" id="fumadores" formControlName="fumadores"/><br />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+</div>
+
+
+<!-- <div class="ng-container">
   <div id="frase">
     <h1>Descubre donde pasarás tu próximo viaje</h1>
   </div>
@@ -14,17 +43,7 @@
     </div>
 
     <div class="col-12 mt-4" id="datos-busqueda">
-      <form [formGroup]="formulario">
-        <label for="habitaciones">Habitaciones</label>
-        <select id="habitaciones" class="m-3" formControlName="habitaciones">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6 o más</option>
-        </select>
-
+      <form [formGroup]="apartamentoForm">
         <label for="adultos">Adultos</label>
         <select id="adultos" class="m-3" formControlName="adultos">
           <option>1</option>
@@ -60,17 +79,11 @@
       <hr />
 
       <div class="form-check">
-        <label class="form-check-label" for="piscina">Piscina</label>
-        <input class="form-check-input" type="checkbox" id="piscina" /><br />
-
         <label class="form-check-label" for="mascota">Permite mascotas</label>
         <input class="form-check-input" type="checkbox" id="mascota" /><br />
 
         <label class="form-check-label" for="piscina">Permite fumadores</label>
         <input class="form-check-input" type="checkbox" id="fumadores" /><br />
-
-        <label class="form-check-label" for="playa">1ª línea de playa</label>
-        <input class="form-check-input" type="checkbox" id="playa" /><br />
       </div>
 
       <hr />
@@ -87,6 +100,6 @@
   </div>
 
   <app-recomendados></app-recomendados>
-</div>
+</div> -->
 
 <app-footer></app-footer>
