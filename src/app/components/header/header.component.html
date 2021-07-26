@@ -41,7 +41,7 @@
         <h2 class="modal-title" id="myModalLabel">Introduce tus datos para crear tu cuenta</h2>
       </div>
 
-      <form [formGroup]="usuarioForm" (ngSubmit)="guardarUsuario()">
+      <form [formGroup]="usuarioForm" (ngSubmit)="guardarUsuario()" class="modal-body">
         <div class="form-group">
           <label>Nombre</label>
           <input type="text" formControlName="nombre" class="form-control"/>
@@ -59,7 +59,7 @@
           <input type="password" formControlName="contrasena" class="form-control"/>
         </div>
 
-        <button type="submit" class="btn btn-primary">Buscar</button>
+        <button type="submit" class="btn btn-primary" [disabled]="usuarioForm.invalid">Crear cuenta</button>
       </form>
 
       <!--
@@ -77,7 +77,33 @@
         <button type="button" class="btn btn-secondary m-2" data-toggle="modal" data-dismiss="modal" data-target="#modalLogin">Ya tienes cuenta?</button>
       </div>
       -->
+      <div class="modal-body">
+        <h2>Usuarios registrados:</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Correo electrónico</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
 
+          <tbody>
+            <tr *ngFor="let item of usuarios">
+              <td>{{item.id}}</td>
+              <td>{{item.nombre}}</td>
+              <td>{{item.apellido}}</td>
+              <td>{{item.email}}</td>
+              <td><button type="button" class="btn btn-danger" (click)="eliminar(item)">Eliminar</button>
+                <button type="button" class="btn btn-success" (click)="editar(item)">Editar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+
+
   </div>
 </div>

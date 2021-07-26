@@ -43,3 +43,9 @@ div.modal-header {
   background-color: lightskyblue;
 }
 
+div.modal-content {
+  justify-content: center;
+  width: 75vw;
+  margin-left: -100%;
+}
+
