@@ -2,33 +2,72 @@
 <app-submenu></app-submenu>
 
 <div class="apartamentoForm">
-  <h2>Búsqueda de apartamentos</h2>
-  <form [formGroup]="apartamentoForm" (ngSubmit)="guardar()">
+  <h2>Registrar apartamento</h2>
+  <form [formGroup]="apartamentoForm" (ngSubmit)="guardarApartamento()">
   <div class="form-group">
-    <label>Destino</label>
+    <label>Nombre</label>
     <input type="text" formControlName="nombre" class="form-control">
   </div>
   <div class="form-group">
     <label>Provincia</label>
-    <select name="provincia" id="provincia" formControlName="provincia" class="form-control">
-      <option value="item.id" *ngFor="let item of apartamentos"></option>
-    </select>
+    <input type="text" formControlName="provincia" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Dirección</label>
+    <input type="text" formControlName="direccion" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Teléfono</label>
+    <input type="number" formControlName="tlf" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Precio</label>
+    <input type="number" formControlName="precio" class="form-control">
   </div>
   <div class="form-group">
     <label>Huéspedes</label>
     <input type="number" formControlName="huespedes" class="form-control">
   </div>
-  <div class="form-check">
+  <!-- <div class="form-check">
     <label class="form-check-label" for="mascotas">Permite mascotas</label>
     <input class="form-check-input" type="checkbox" id="mascotas" formControlName="mascotas"/><br />
 
     <label class="form-check-label" for="piscina">Permite fumadores</label>
     <input class="form-check-input" type="checkbox" id="fumadores" formControlName="fumadores"/><br />
-  </div>
+  </div> -->
 
-  <button type="submit" class="btn btn-primary">Buscar</button>
+  <button type="submit" class="btn btn-primary" [disabled]="apartamentoForm.invalid">Registrar</button>
 </form>
 </div>
+
+<h2>Apartamentos registrados:</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Provincia</th>
+              <th>Dirección</th>
+              <th>Teléfono</th>
+              <th>Precio</th>
+              <th>Huéspedes máx.</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let item of apartamentos">
+              <td>{{item.id}}</td>
+              <td>{{item.nombre}}</td>
+              <td>{{item.provincia}}</td>
+              <td>{{item.direccion}}</td>
+              <td>{{item.tlf}}</td>
+              <td>{{item.precio}}</td>
+              <td>{{item.huespedes}}</td>
+              <!-- <td><button type="button" class="btn btn-danger" (click)="eliminar(item)">Eliminar</button>
+                <button type="button" class="btn btn-success" (click)="editar(item)">Editar</button></td> -->
+            </tr>
+          </tbody>
+        </table>
 
 
 <!-- <div class="ng-container">

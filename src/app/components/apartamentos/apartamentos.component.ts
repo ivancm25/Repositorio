@@ -18,27 +18,54 @@ export class ApartamentosComponent implements OnInit {
   ) { }
 
   public ngOnInit() {
-    this.buildForm();
 
-    this.apartamentoService.getAllApartamentos().subscribe(resp=>{
+    this.apartamentoForm = this.fb.group({
+      id : [''],
+      nombre: ['', Validators.required],
+      provincia: ['', Validators.required],
+      direccion: ['', Validators.required],
+      tlf: ['', Validators.required],
+      precio: ['', Validators.required],
+      huespedes: ['', Validators.required]
+    });
+
+    this.apartamentoService.getAllApartamentos().subscribe(resp => {
       this.apartamentos = resp;
-      console.log(resp);
     },
       error => { console.error(error) }
     )
   }
 
-  private buildForm(){
-    this.apartamentoForm = this.fb.group({
-      provincia : ['', Validators.required],
-      huespedes : ['', Validators.required],
-      precio : ['', Validators.required],
-      mascotas : ['', Validators.required],
-      fumadores : ['', Validators.required]
-    });
+  public guardarApartamento(): void {
+    this.apartamentoService.saveApartamento(this.apartamentoForm.value).subscribe(resp=>{
+      this.apartamentoForm.reset();
+      this.apartamentos = this.apartamentos.filter((apartamento: { id: any; })=> resp.id != apartamento.id);
+      this.apartamentos.push(resp);
+    },
+      error=>{ console.error(error) }
+    )
   }
 
-  guardar():void {
+  public eliminar(apartamento:any) {
+    this.apartamentoService.deleteApartamento(apartamento.id).subscribe(resp=>{
+      if (resp === true) {
+        this.apartamentos.pop(apartamento);
+      }
+      this.apartamentoForm.reset();
+    },
+      error=>{ console.error(error) }
+    )
+  }
 
+  public editar(apartamento:any) {
+    this.apartamentoForm.setValue({
+      id : apartamento.id,
+      nombre: apartamento.nombre,
+      provincia: apartamento.provincia,
+      direccion: apartamento.direccion,
+      tlf: apartamento.tlf,
+      precio: apartamento.precio,
+      huespedes: apartamento.huespedes
+    })
   }
 }
