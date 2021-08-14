@@ -14,4 +14,12 @@ export class HabitacionesService {
   public getAllHabitaciones(): Observable<any>{
     return this.httpClient.get(this.API_SERVER);
   }
+
+  public saveHabitacion (habitacion:any): Observable<any>{
+    return this.httpClient.post(this.API_SERVER, habitacion);
+  }
+
+  public deleteHabitacion(id:any): Observable<any>{
+    return this.httpClient.delete(this.API_SERVER + "delete/" + id);
+  }
 }

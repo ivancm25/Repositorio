@@ -22,6 +22,7 @@ import { ApartamentosComponent } from './components/apartamentos/apartamentos.co
 import { CasasRuralesComponent } from './components/casas-rurales/casas-rurales.component';
 import { AlojamientoDetalleComponent } from './components/alojamiento-detalle/alojamiento-detalle.component';
 import { HotelesComponent } from './components/hoteles/hoteles.component';
+import { HabitacionesComponent } from './components/habitaciones/habitaciones.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { HotelesComponent } from './components/hoteles/hoteles.component';
     ApartamentosComponent,
     CasasRuralesComponent,
     AlojamientoDetalleComponent,
-    HotelesComponent
+    HotelesComponent,
+    HabitacionesComponent
   ],
   imports: [
     BrowserModule,

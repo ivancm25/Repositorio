@@ -7,6 +7,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http'
 import { AlojamientoDetalleComponent } from './components/alojamiento-detalle/alojamiento-detalle.component';
 import { HotelesComponent } from './components/hoteles/hoteles.component';
+import { HabitacionesComponent } from './components/habitaciones/habitaciones.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const routes: Routes = [
   ] },
   { path: 'casas-rurales', component: CasasRuralesComponent },
   { path: 'hoteles', component: HotelesComponent },
+  { path: 'habitaciones', component: HabitacionesComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 

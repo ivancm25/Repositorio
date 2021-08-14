@@ -1,91 +1,121 @@
 <app-header></app-header>
 <app-submenu></app-submenu>
 
-<div class="ng-container">
-  <div id="frase">
-    <h1>Descubre donde pasarás tu próximo viaje</h1>
+<div class="hotelForm">
+  <h2>Registrar hotel</h2>
+  <form [formGroup]="hotelForm" (ngSubmit)="guardarHotel()">
+  <div class="form-group">
+    <label>Nombre</label>
+    <input type="text" formControlName="nombre" class="form-control">
   </div>
-
-  <div id="busqueda" class="m-5">
-    <div class="input-group">
-      <input type="text" id="inputBusqueda" class="form-control" placeholder="Introduce el destino de tu viaje"/>
-      <button class="btn btn-primary" type="button" id="btnBusqueda">Buscar</button>
-    </div>
-
-    <div class="col-12 mt-4" id="datos-busqueda">
-      <form [formGroup]="formulario">
-        <label for="habitaciones">Habitaciones</label>
-        <select id="habitaciones" class="m-3" formControlName="habitaciones">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6 o más</option>
-        </select>
-
-        <label for="adultos">Adultos</label>
-        <select id="adultos" class="m-3" formControlName="adultos">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6 o más</option>
-        </select>
-
-        <label for="ninos">Niños</label>
-        <select id="ninos" class="m-3" formControlName="ninos">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6 o más</option>
-        </select>
-      </form>
-    </div>
+  <div class="form-group">
+    <label>Provincia</label>
+    <select required name="provincia" class="form-control" formControlName="provincia">
+      <option value="Álava">Álava</option>
+      <option value="Albacete">Albacete</option>
+      <option value="Alicante">Alicante</option>
+      <option value="Almería">Almería</option>
+      <option value="Asturias">Asturias</option>
+      <option value="Ávila">Ávila</option>
+      <option value="Badajoz">Badajoz</option>
+      <option value="Baleares">Baleares</option>
+      <option value="Barcelona">Barcelona</option>
+      <option value="Burgos">Burgos</option>
+      <option value="Cáceres">Cáceres</option>
+      <option value="Cádiz">Cádiz</option>
+      <option value="Cantabria">Cantabria</option>
+      <option value="Castellón">Castellón</option>
+      <option value="Ceuta">Ceuta</option>
+      <option value="Ciudad Real">Ciudad Real</option>
+      <option value="Córdoba">Córdoba</option>
+      <option value="Cuenca">Cuenca</option>
+      <option value="Girona">Girona</option>
+      <option value="Granada">Granada</option>
+      <option value="Guadalajara">Guadalajara</option>
+      <option value="Gipuzkoa">Gipuzkoa</option>
+      <option value="Huelva">Huelva</option>
+      <option value="Huesca">Huesca</option>
+      <option value="Jaén">Jaén</option>
+      <option value="A Coruña">A Coruña</option>
+      <option value="La Rioja">La Rioja</option>
+      <option value="Las Palmas">Las Palmas</option>
+      <option value="León">León</option>
+      <option value="Lleida">Lleida</option>
+      <option value="Lugo">Lugo</option>
+      <option value="Madrid">Madrid</option>
+      <option value="Málaga">Málaga</option>
+      <option value="Melilla">Melilla</option>
+      <option value="Murcia">Murcia</option>
+      <option value="Navarra">Navarra</option>
+      <option value="Ourense">Ourense</option>
+      <option value="Palencia">Palencia</option>
+      <option value="Pontevedra">Pontevedra</option>
+      <option value="Salamanca">Salamanca</option>
+      <option value="Segovia">Segovia</option>
+      <option value="Sevilla">Sevilla</option>
+      <option value="Soria">Soria</option>
+      <option value="Tarragona">Tarragona</option>
+      <option value="Tenerife">Tenerife</option>
+      <option value="Teruel">Teruel</option>
+      <option value="Toledo">Toledo</option>
+      <option value="Valencia">Valencia</option>
+      <option value="Valladolid">Valladolid</option>
+      <option value="Bizkaia">Bizkaia</option>
+      <option value="Zamora">Zamora</option>
+      <option value="Zaragoza">Zaragoza</option>
+    </select>
   </div>
-
-  <div id="filtros">
-    <h2>Filtros destacados</h2>
-
-    <div class="content-filtros">
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"/>
-        <label class="form-check-label bg-blue" for="flexSwitchCheckDefault">Mostrar sólo disponibles</label>
-      </div>
-
-      <hr />
-
-      <div class="form-check">
-        <label class="form-check-label" for="piscina">Piscina</label>
-        <input class="form-check-input" type="checkbox" id="piscina" /><br />
-
-        <label class="form-check-label" for="mascota">Permite mascotas</label>
-        <input class="form-check-input" type="checkbox" id="mascota" /><br />
-
-        <label class="form-check-label" for="piscina">Permite fumadores</label>
-        <input class="form-check-input" type="checkbox" id="fumadores" /><br />
-
-        <label class="form-check-label" for="playa">1ª línea de playa</label>
-        <input class="form-check-input" type="checkbox" id="playa" /><br />
-      </div>
-
-      <hr />
-
-      <label for="maxPrecio" class="form-label">Máximo de precio</label>
-      <input type="range" class="form-range" id="maxPrecio" />
-
-      <hr />
-
-      <button class="btn btn-primary" type="button" id="btnFiltros">
-        Aplicar filtros
-      </button>
-    </div>
+  <div class="form-group">
+    <label>Dirección</label>
+    <input type="text" formControlName="direccion" class="form-control">
   </div>
+  <div class="form-group">
+    <label>Teléfono</label>
+    <input type="number" formControlName="tlf" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Habitaciones</label>
+    <input type="number" formControlName="habitaciones" class="form-control">
+  </div>
+  <!-- <div class="form-check">
+    <label class="form-check-label" for="mascotas">Permite mascotas</label>
+    <input class="form-check-input" type="checkbox" id="mascotas" formControlName="mascotas"/><br />
 
-  <app-recomendados></app-recomendados>
+    <label class="form-check-label" for="piscina">Permite fumadores</label>
+    <input class="form-check-input" type="checkbox" id="fumadores" formControlName="fumadores"/><br />
+  </div> -->
+
+  <button type="submit" class="btn btn-primary" [disabled]="hotelForm.invalid">Registrar</button>
+
+  <button class="btn btn-primary" routerLink="/habitaciones">Registrar habitaciones</button>
+</form>
 </div>
+
+<h2>Hoteles registrados:</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Provincia</th>
+              <th>Dirección</th>
+              <th>Teléfono</th>
+              <th>Habitaciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let item of hoteles">
+              <td>{{item.id}}</td>
+              <td>{{item.nombre}}</td>
+              <td>{{item.provincia}}</td>
+              <td>{{item.direccion}}</td>
+              <td>{{item.tlf}}</td>
+              <td>{{item.habitaciones}}</td>
+              <td><button type="button" class="btn btn-danger" (click)="eliminar(item)">Eliminar</button>
+                <button type="button" class="btn btn-success" (click)="editar(item)">Editar</button></td>
+            </tr>
+          </tbody>
+        </table>
 
 <app-footer></app-footer>

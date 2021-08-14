@@ -14,4 +14,12 @@ export class HotelesService {
   public getAllHoteles(): Observable<any>{
     return this.httpClient.get(this.API_SERVER);
   }
+
+  public saveHotel (hotel:any): Observable<any>{
+    return this.httpClient.post(this.API_SERVER, hotel);
+  }
+
+  public deleteHotel(id:any): Observable<any>{
+    return this.httpClient.delete(this.API_SERVER + "delete/" + id);
+  }
 }
