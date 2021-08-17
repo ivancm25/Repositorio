@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApartamentosService } from 'src/app/services/apartamentos/apartamentos.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-apartamentos',
@@ -9,8 +10,11 @@ import { ApartamentosService } from 'src/app/services/apartamentos/apartamentos.
 })
 export class ApartamentosComponent implements OnInit {
   public apartamentoForm: FormGroup;
-
+  public headerComponent: HeaderComponent;
+  apartamento: any;
   apartamentos: any;
+
+  @Output() apartamentoAReservar = new EventEmitter<any>();
 
   constructor(
     public fb: FormBuilder,
@@ -26,7 +30,9 @@ export class ApartamentosComponent implements OnInit {
       direccion: ['', Validators.required],
       tlf: ['', Validators.required],
       precio: ['', Validators.required],
-      huespedes: ['', Validators.required]
+      huespedes: ['', Validators.required],
+      mascotas: ['', Validators.required],
+      fumadores: ['', Validators.required]
     });
 
     this.apartamentoService.getAllApartamentos().subscribe(resp => {
@@ -65,7 +71,17 @@ export class ApartamentosComponent implements OnInit {
       direccion: apartamento.direccion,
       tlf: apartamento.tlf,
       precio: apartamento.precio,
-      huespedes: apartamento.huespedes
+      huespedes: apartamento.huespedes,
+      mascotas: apartamento.mascotas,
+      fumadores: apartamento.fumadores
     })
+  }
+
+  public estaLogeado() {
+    return this.headerComponent.getLogeado();
+  }
+
+  public enviarApartamento(apartamento:any) {
+    this.apartamentoAReservar.emit(apartamento);
   }
 }

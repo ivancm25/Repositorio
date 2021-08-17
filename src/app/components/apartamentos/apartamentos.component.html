@@ -1,79 +1,101 @@
 <app-header></app-header>
 <app-submenu></app-submenu>
 
+<div class="apartamentos">
+  <h2>Apartamentos en Galicia</h2>
+  <div class="apartamento" *ngFor="let item of apartamentos">
+    <h2>{{ item.nombre }}</h2>
+    <h3>{{ item.provincia }}</h3>
+    <p>{{ item.direccion }}</p>
+    <p>{{ item.huespedes }} huéspedes máximo</p>
+    <p>{{ item.precio }}€</p>
+    <button type="button" class="btn btn-primary" (click)="enviarApartamento(item)">Reservar</button>
+  </div>
+</div>
+
 <div class="apartamentoForm">
   <h2>Registrar apartamento</h2>
   <form [formGroup]="apartamentoForm" (ngSubmit)="guardarApartamento()">
-  <div class="form-group">
-    <label>Nombre</label>
-    <input type="text" formControlName="nombre" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Provincia</label>
-    <select required name="provincia" class="form-control" formControlName="provincia">
-      <option value="A Coruña">A Coruña</option>
-      <option value="Lugo">Lugo</option>
-      <option value="Ourense">Ourense</option>
-      <option value="Pontevedra">Pontevedra</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label>Dirección</label>
-    <input type="text" formControlName="direccion" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Teléfono</label>
-    <input type="number" formControlName="tlf" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Precio</label>
-    <input type="number" formControlName="precio" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Huéspedes</label>
-    <input type="number" formControlName="huespedes" class="form-control">
-  </div>
-  <!-- <div class="form-check">
-    <label class="form-check-label" for="mascotas">Permite mascotas</label>
-    <input class="form-check-input" type="checkbox" id="mascotas" formControlName="mascotas"/><br />
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" formControlName="nombre" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Provincia</label>
+      <select
+        required
+        name="provincia"
+        class="form-control"
+        formControlName="provincia"
+      >
+        <option value="A Coruña">A Coruña</option>
+        <option value="Lugo">Lugo</option>
+        <option value="Ourense">Ourense</option>
+        <option value="Pontevedra">Pontevedra</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Dirección</label>
+      <input type="text" formControlName="direccion" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Teléfono</label>
+      <input type="number" formControlName="tlf" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Precio</label>
+      <input type="number" formControlName="precio" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Huéspedes</label>
+      <input type="number" formControlName="huespedes" class="form-control" />
+    </div>
+    <div class="form-check">
+      <label class="form-check-label" for="mascotas">Permite mascotas?</label>
+      <input class="form-check-input" type="checkbox" id="mascotas" formControlName="mascotas"/><br />
 
-    <label class="form-check-label" for="piscina">Permite fumadores</label>
-    <input class="form-check-input" type="checkbox" id="fumadores" formControlName="fumadores"/><br />
-  </div> -->
+      <label class="form-check-label" for="fumadores">Permite fumadores?</label>
+      <input class="form-check-input" type="checkbox" id="fumadores" formControlName="fumadores"/><br />
+    </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="apartamentoForm.invalid">Registrar</button>
-</form>
+    <button type="submit" class="btn btn-primary" [disabled]="apartamentoForm.invalid">Registrar</button>
+  </form>
 </div>
 
 <h2>Apartamentos registrados:</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Provincia</th>
-              <th>Dirección</th>
-              <th>Teléfono</th>
-              <th>Precio</th>
-              <th>Huéspedes máx.</th>
-            </tr>
-          </thead>
+<table class="table" id="tabApartamentos">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Provincia</th>
+      <th>Dirección</th>
+      <th>Teléfono</th>
+      <th>Precio</th>
+      <th>Huéspedes máx.</th>
+      <th>Mascotas</th>
+      <th>Fumadores</th>
+    </tr>
+  </thead>
 
-          <tbody>
-            <tr *ngFor="let item of apartamentos">
-              <td>{{item.id}}</td>
-              <td>{{item.nombre}}</td>
-              <td>{{item.provincia}}</td>
-              <td>{{item.direccion}}</td>
-              <td>{{item.tlf}}</td>
-              <td>{{item.precio}}</td>
-              <td>{{item.huespedes}}</td>
-              <td><button type="button" class="btn btn-danger" (click)="eliminar(item)">Eliminar</button>
-                <button type="button" class="btn btn-success" (click)="editar(item)">Editar</button></td>
-            </tr>
-          </tbody>
-        </table>
-
+  <tbody>
+    <tr *ngFor="let item of apartamentos">
+      <td>{{ item.id }}</td>
+      <td>{{ item.nombre }}</td>
+      <td>{{ item.provincia }}</td>
+      <td>{{ item.direccion }}</td>
+      <td>{{ item.tlf }}</td>
+      <td>{{ item.precio }}</td>
+      <td>{{ item.huespedes }}</td>
+      <td>{{ item.mascotas }}</td>
+      <td>{{ item.fumadores }}</td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="eliminar(item)">Eliminar</button>
+        <button type="button" class="btn btn-success" (click)="editar(item)">Editar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- <div class="ng-container">
   <div id="frase">

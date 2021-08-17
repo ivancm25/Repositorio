@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'apartamentos', component: ApartamentosComponent, children: [
-    { path: '', component: ApartamentosComponent },
     { path: 'apartamento', component: AlojamientoDetalleComponent },
   ] },
   { path: 'casas-rurales', component: CasasRuralesComponent },

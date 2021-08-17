@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 
@@ -10,14 +10,24 @@ import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 export class HeaderComponent implements OnInit {
 
   usuarioForm: FormGroup;
+  loginForm: FormGroup;
   usuarios: any;
+  static logeado: boolean = false;
+  static usuarioRegistrado: any;
+  public classReference = HeaderComponent;
 
   constructor(
     public fb: FormBuilder,
+    public fb2: FormBuilder,
     public usuarioService: UsuariosService
     ) { }
 
   ngOnInit(): void {
+    this.loginForm = this.fb2.group({
+      id : [''],
+		  email : ['', Validators.required],
+		  contrasena : ['', Validators.required]
+    })
 
     this.usuarioForm = this.fb.group({
       id : [''],
@@ -63,6 +73,25 @@ export class HeaderComponent implements OnInit {
 		  email : usuario.email,
 		  contrasena : usuario.contrasena
     })
+  }
+
+  public login() {
+    for (let user of this.usuarios) {
+      if (this.loginForm.value.email == user.email && this.loginForm.value.contrasena == user.contrasena) {
+        this.classReference.logeado = true;
+        this.classReference.usuarioRegistrado = user;
+      }
+    }
+  }
+
+  public getLogeado() {
+    return this.classReference.logeado;
+  }
+
+  public cerrarSesion() {
+    if (this.classReference.logeado) {
+      this.classReference.logeado = false;
+    }
   }
 
 }

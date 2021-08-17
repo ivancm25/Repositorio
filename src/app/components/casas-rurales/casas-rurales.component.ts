@@ -27,7 +27,10 @@ export class CasasRuralesComponent implements OnInit {
       direccion: ['', Validators.required],
       tlf: ['', Validators.required],
       precio: ['', Validators.required],
-      huespedes: ['', Validators.required]
+      huespedes: ['', Validators.required],
+      piscina: ['', Validators.required],
+      mascotas: ['', Validators.required],
+      fumadores: ['', Validators.required]
     });
 
     this.casaRuralService.getAllCasasRurales().subscribe(resp => {
@@ -66,7 +69,10 @@ export class CasasRuralesComponent implements OnInit {
       direccion: casaRural.direccion,
       tlf: casaRural.tlf,
       precio: casaRural.precio,
-      huespedes: casaRural.huespedes
+      huespedes: casaRural.huespedes,
+      piscina: casaRural.piscina,
+      mascotas: casaRural.mascotas,
+      fumadores: casaRural.fumadores
     })
   }
 }

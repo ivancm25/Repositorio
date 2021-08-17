@@ -25,7 +25,9 @@ export class HotelesComponent implements OnInit {
       provincia: ['', Validators.required],
       direccion: ['', Validators.required],
       tlf: ['', Validators.required],
-      habitaciones: ['', Validators.required]
+      habitaciones: ['', Validators.required],
+      piscina: ['', Validators.required],
+      fumadores: ['', Validators.required]
     });
 
     this.hotelService.getAllHoteles().subscribe(resp => {
@@ -63,7 +65,9 @@ export class HotelesComponent implements OnInit {
       provincia: hotel.provincia,
       direccion: hotel.direccion,
       tlf: hotel.tlf,
-      habitaciones: hotel.habitaciones
+      habitaciones: hotel.habitaciones,
+      piscina: hotel.piscina,
+      fumadores: hotel.fumadores
     })
   }
 }
