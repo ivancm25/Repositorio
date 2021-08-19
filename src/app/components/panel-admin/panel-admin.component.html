@@ -1,0 +1,161 @@
+<app-header></app-header>
+<app-submenu></app-submenu>
+
+<div *ngIf="classReference.esAdmin">
+  <h2>Usuarios registrados:</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo electrónico</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of usuarios">
+        <td>{{item.id}}</td>
+        <td>{{item.nombre}}</td>
+        <td>{{item.apellido}}</td>
+        <td>{{item.email}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="eliminarUsuario(item)">Eliminar</button>
+          <button type="button" class="btn btn-success" (click)="editarUsuario(item)">Editar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Apartamentos registrados:</h2>
+    <table class="table" id="tabApartamentos">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Provincia</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+          <th>Precio</th>
+          <th>Huéspedes máx.</th>
+          <th>Mascotas</th>
+          <th>Fumadores</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of apartamentos">
+          <td>{{ item.id }}</td>
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.provincia }}</td>
+          <td>{{ item.direccion }}</td>
+          <td>{{ item.tlf }}</td>
+          <td>{{ item.precio }}</td>
+          <td>{{ item.huespedes }}</td>
+          <td>{{ item.mascotas }}</td>
+          <td>{{ item.fumadores }}</td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="eliminarApartamento(item)">Eliminar</button>
+            <button type="button" class="btn btn-success" (click)="editarApartamento(item)">Editar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  <h2>Casas rurales registradas:</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Provincia</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+          <th>Precio</th>
+          <th>Huéspedes máx.</th>
+          <th>Piscina</th>
+          <th>Mascotas</th>
+          <th>Fumadores</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of casasRurales">
+          <td>{{item.id}}</td>
+          <td>{{item.nombre}}</td>
+          <td>{{item.provincia}}</td>
+          <td>{{item.direccion}}</td>
+          <td>{{item.tlf}}</td>
+          <td>{{item.precio}}</td>
+          <td>{{item.huespedes}}</td>
+          <td>{{item.piscina}}</td>
+          <td>{{item.mascotas}}</td>
+          <td>{{item.fumadores}}</td>
+          <td><button type="button" class="btn btn-danger" (click)="eliminarCasaRural(item)">Eliminar</button>
+            <button type="button" class="btn btn-success" (click)="editarCasaRural(item)">Editar</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  <h2>Hoteles registrados:</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Provincia</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+          <th>Habitaciones</th>
+          <th>Piscina</th>
+          <th>Fumadores</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of hoteles">
+          <td>{{item.id}}</td>
+          <td>{{item.nombre}}</td>
+          <td>{{item.provincia}}</td>
+          <td>{{item.direccion}}</td>
+          <td>{{item.tlf}}</td>
+          <td>{{item.habitaciones}}</td>
+          <td>{{item.piscina}}</td>
+          <td>{{item.fumadores}}</td>
+          <td><button type="button" class="btn btn-danger" (click)="eliminarHotel(item)">Eliminar</button>
+            <button type="button" class="btn btn-success" (click)="editarHotel(item)">Editar</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Habitaciones registradas:</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Hotel</th>
+          <th>Precio</th>
+          <th>Huéspedes</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of habitaciones">
+          <td>{{item.id}}</td>
+          <td>{{item.nombre}}</td>
+          <td>{{item.hotel}}</td>
+          <td>{{item.precio}}</td>
+          <td>{{item.huespedes}}</td>
+          <td><button type="button" class="btn btn-danger" (click)="eliminarHabitacion(item)">Eliminar</button>
+            <button type="button" class="btn btn-success" (click)="editarHabitacion(item)">Editar</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+<div *ngIf="!classReference.esAdmin">
+  <h1>Vuelve cuando seas admin</h1>
+</div>
+
+<app-footer></app-footer>

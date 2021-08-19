@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
+import { ApartamentosService } from 'src/app/services/apartamentos/apartamentos.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  apartamentos: any;
+  public classReference = HeaderComponent;
+
+  constructor(
+    public apartamentoService: ApartamentosService
+  ) { }
 
   ngOnInit(): void {
+    this.apartamentoService.getAllApartamentos().subscribe(resp => {
+      this.apartamentos = resp;
+    },
+      error => { console.error(error) }
+    )
   }
 
 }

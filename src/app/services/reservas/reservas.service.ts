@@ -14,4 +14,12 @@ export class ReservasService {
   public getAllReservas(): Observable<any>{
     return this.httpClient.get(this.API_SERVER);
   }
+
+  public saveReserva (reserva:any): Observable<any>{
+    return this.httpClient.post(this.API_SERVER, reserva);
+  }
+
+  public deleteReserva(id:any): Observable<any>{
+    return this.httpClient.delete(this.API_SERVER + "delete/" + id);
+  }
 }

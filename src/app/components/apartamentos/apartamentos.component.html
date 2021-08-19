@@ -1,171 +1,104 @@
 <app-header></app-header>
 <app-submenu></app-submenu>
 
-<div class="apartamentos">
-  <h2>Apartamentos en Galicia</h2>
-  <div class="apartamento" *ngFor="let item of apartamentos">
-    <h2>{{ item.nombre }}</h2>
-    <h3>{{ item.provincia }}</h3>
-    <p>{{ item.direccion }}</p>
-    <p>{{ item.huespedes }} huéspedes máximo</p>
-    <p>{{ item.precio }}€</p>
-    <button type="button" class="btn btn-primary" (click)="enviarApartamento(item)">Reservar</button>
+<div class="container">
+
+  <!-- Listamos los apartamentos listados -->
+  <div class="apartamentos">
+    <h2>Apartamentos en Galicia</h2>
+    <div class="apartamento" *ngFor="let item of apartamentos">
+      <h2>{{ item.nombre }}</h2>
+      <h3>{{ item.provincia }}</h3>
+      <p>{{ item.direccion }}</p>
+      <p>{{ item.huespedes }} huéspedes máximo</p>
+      <p>{{ item.precio }}€</p>
+      <button type="button" class="btn btn-primary" *ngIf="classReference.logeado">Reservar</button>
+      <button type="button" class="btn btn-dark" id="reserva" data-toggle="modal" (click)="seleccionarApartamento(item)" data-target="#modalReserva">Reservar</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <button type="button" class="btn btn-info" id="verForm" *ngIf="classReference.logeado" (click)="verFormulario = true">Quieres registrar tu apartamento?</button>
+
+  <!-- Formulario para registrar apartamento -->
+  <div class="apartamentoForm" *ngIf="verFormulario">
+    <h2>Registrar apartamento</h2>
+    <form [formGroup]="apartamentoForm" (ngSubmit)="guardarApartamento()">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Provincia</label>
+        <select required name="provincia" class="form-control" formControlName="provincia">
+          <option value="A Coruña">A Coruña</option>
+          <option value="Lugo">Lugo</option>
+          <option value="Ourense">Ourense</option>
+          <option value="Pontevedra">Pontevedra</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Dirección</label>
+        <input type="text" formControlName="direccion" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="number" formControlName="tlf" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Precio</label>
+        <input type="number" formControlName="precio" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Huéspedes</label>
+        <input type="number" formControlName="huespedes" class="form-control" />
+      </div>
+      <div class="form-check">
+        <label class="form-check-label" for="mascotas">Permite mascotas?</label>
+        <input class="form-check-input" type="checkbox" id="mascotas" formControlName="mascotas"/><br />
+
+        <label class="form-check-label" for="fumadores">Permite fumadores?</label>
+        <input class="form-check-input" type="checkbox" id="fumadores" formControlName="fumadores"/><br />
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="apartamentoForm.invalid">Registrar</button>
+    </form>
   </div>
 </div>
 
-<div class="apartamentoForm">
-  <h2>Registrar apartamento</h2>
-  <form [formGroup]="apartamentoForm" (ngSubmit)="guardarApartamento()">
-    <div class="form-group">
-      <label>Nombre</label>
-      <input type="text" formControlName="nombre" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label>Provincia</label>
-      <select
-        required
-        name="provincia"
-        class="form-control"
-        formControlName="provincia"
-      >
-        <option value="A Coruña">A Coruña</option>
-        <option value="Lugo">Lugo</option>
-        <option value="Ourense">Ourense</option>
-        <option value="Pontevedra">Pontevedra</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Dirección</label>
-      <input type="text" formControlName="direccion" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label>Teléfono</label>
-      <input type="number" formControlName="tlf" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label>Precio</label>
-      <input type="number" formControlName="precio" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label>Huéspedes</label>
-      <input type="number" formControlName="huespedes" class="form-control" />
-    </div>
-    <div class="form-check">
-      <label class="form-check-label" for="mascotas">Permite mascotas?</label>
-      <input class="form-check-input" type="checkbox" id="mascotas" formControlName="mascotas"/><br />
 
-      <label class="form-check-label" for="fumadores">Permite fumadores?</label>
-      <input class="form-check-input" type="checkbox" id="fumadores" formControlName="fumadores"/><br />
-    </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="apartamentoForm.invalid">Registrar</button>
-  </form>
-</div>
+<!-- Ventana modal para la reserva -->
+<div class="modal fade" id="modalReserva" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">Introduce la fecha de entrada y salida</h2>
+      </div>
 
-<h2>Apartamentos registrados:</h2>
-<table class="table" id="tabApartamentos">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Provincia</th>
-      <th>Dirección</th>
-      <th>Teléfono</th>
-      <th>Precio</th>
-      <th>Huéspedes máx.</th>
-      <th>Mascotas</th>
-      <th>Fumadores</th>
-    </tr>
-  </thead>
+      <form [formGroup]="reservaForm" class="modal-body">
+        <div class="fechaEntrada">
+          <h2>Entrada</h2>
+          <mat-card class="demo-inline-calendar-card">
+            <mat-calendar (selectedChange)="fechaEntrada = $event"></mat-calendar>
+          </mat-card>
+          <p>Fecha entrada: {{fechaEntrada}}</p>
+        </div>
 
-  <tbody>
-    <tr *ngFor="let item of apartamentos">
-      <td>{{ item.id }}</td>
-      <td>{{ item.nombre }}</td>
-      <td>{{ item.provincia }}</td>
-      <td>{{ item.direccion }}</td>
-      <td>{{ item.tlf }}</td>
-      <td>{{ item.precio }}</td>
-      <td>{{ item.huespedes }}</td>
-      <td>{{ item.mascotas }}</td>
-      <td>{{ item.fumadores }}</td>
-      <td>
-        <button type="button" class="btn btn-danger" (click)="eliminar(item)">Eliminar</button>
-        <button type="button" class="btn btn-success" (click)="editar(item)">Editar</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        <div class="fechaSalida">
+          <h2>Salida</h2>
+          <mat-card class="demo-inline-calendar-card">
+            <mat-calendar (selectedChange)="fechaSalida = $event"></mat-calendar>
+          </mat-card>
+          <p>Fecha salida: {{fechaSalida}}</p>
+        </div>
 
-<!-- <div class="ng-container">
-  <div id="frase">
-    <h1>Descubre donde pasarás tu próximo viaje</h1>
-  </div>
-
-  <div id="busqueda" class="m-5">
-    <div class="input-group">
-      <input type="text" id="inputBusqueda" class="form-control" placeholder="Introduce el destino de tu viaje"/>
-      <button class="btn btn-primary" type="button" id="btnBusqueda">Buscar</button>
-    </div>
-
-    <div class="col-12 mt-4" id="datos-busqueda">
-      <form [formGroup]="apartamentoForm">
-        <label for="adultos">Adultos</label>
-        <select id="adultos" class="m-3" formControlName="adultos">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6 o más</option>
-        </select>
-
-        <label for="ninos">Niños</label>
-        <select id="ninos" class="m-3" formControlName="ninos">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6 o más</option>
-        </select>
+        <span *ngIf="comprobarFechas(fechaEntrada, fechaSalida)">El precio total serían {{contarDias(fechaEntrada, fechaSalida) * this.apartamento.precio}}</span>
+        <button type="button" class="btn btn-dark" id="reserva" *ngIf="comprobarFechas(fechaEntrada, fechaSalida)" (click)="reservarApartamento(this.apartamento, fechaEntrada, fechaSalida)">Confirmar</button>
       </form>
     </div>
   </div>
-
-  <div id="filtros">
-    <h2>Filtros destacados</h2>
-
-    <div class="content-filtros">
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"/>
-        <label class="form-check-label bg-blue" for="flexSwitchCheckDefault">Mostrar sólo disponibles</label>
-      </div>
-
-      <hr />
-
-      <div class="form-check">
-        <label class="form-check-label" for="mascota">Permite mascotas</label>
-        <input class="form-check-input" type="checkbox" id="mascota" /><br />
-
-        <label class="form-check-label" for="piscina">Permite fumadores</label>
-        <input class="form-check-input" type="checkbox" id="fumadores" /><br />
-      </div>
-
-      <hr />
-
-      <label for="maxPrecio" class="form-label">Máximo de precio</label>
-      <input type="range" class="form-range" id="maxPrecio" />
-
-      <hr />
-
-      <button class="btn btn-primary" type="button" id="btnFiltros">
-        Aplicar filtros
-      </button>
-    </div>
-  </div>
-
-  <app-recomendados></app-recomendados>
-</div> -->
+</div>
 
 <app-footer></app-footer>

@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   usuarios: any;
   static logeado: boolean = false;
   static usuarioRegistrado: any;
+  static esAdmin: boolean = false;
   public classReference = HeaderComponent;
 
   constructor(
@@ -80,12 +81,20 @@ export class HeaderComponent implements OnInit {
       if (this.loginForm.value.email == user.email && this.loginForm.value.contrasena == user.contrasena) {
         this.classReference.logeado = true;
         this.classReference.usuarioRegistrado = user;
+
+        if (this.loginForm.value.email == "admin@turismogal.com") {
+          this.classReference.esAdmin = true;
+        }
       }
     }
   }
 
   public getLogeado() {
     return this.classReference.logeado;
+  }
+
+  public esAdmin() {
+    return this.classReference.esAdmin;
   }
 
   public cerrarSesion() {

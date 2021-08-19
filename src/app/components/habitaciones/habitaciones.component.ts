@@ -45,6 +45,7 @@ export class HabitacionesComponent implements OnInit {
   }
 
   public guardarHabitacion(): void {
+    console.log(this.habitacionForm.value);
     this.habitacionService.saveHabitacion(this.habitacionForm.value).subscribe(resp=>{
       this.habitacionForm.reset();
       this.habitaciones = this.habitaciones.filter((habitacion: { id: any; })=> resp.id != habitacion.id);

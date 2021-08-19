@@ -1,152 +1,78 @@
 <app-header></app-header>
 <app-submenu></app-submenu>
 
-<div class="casaRuralForm">
-  <h2>Registrar casa rural</h2>
-  <form [formGroup]="casaRuralForm" (ngSubmit)="guardarCasaRural()">
-  <div class="form-group">
-    <label>Nombre</label>
-    <input type="text" formControlName="nombre" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Provincia</label>
-    <select required name="provincia" class="form-control" formControlName="provincia">
-      <option value="A Coruña">A Coruña</option>
-      <option value="Lugo">Lugo</option>
-      <option value="Ourense">Ourense</option>
-      <option value="Pontevedra">Pontevedra</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label>Dirección</label>
-    <input type="text" formControlName="direccion" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Teléfono</label>
-    <input type="number" formControlName="tlf" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Precio</label>
-    <input type="number" formControlName="precio" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Huéspedes</label>
-    <input type="number" formControlName="huespedes" class="form-control">
-  </div>
-  <div class="form-check">
-    <label class="form-check-label" for="piscina">Tiene piscina?</label>
-    <input class="form-check-input" type="checkbox" id="piscina" formControlName="piscina"/><br />
+<div class="container">
 
-    <label class="form-check-label" for="mascotas">Permite mascotas?</label>
-    <input class="form-check-input" type="checkbox" id="mascotas" formControlName="mascotas"/><br />
-
-    <label class="form-check-label" for="fumadores">Permite fumadores?</label>
-    <input class="form-check-input" type="checkbox" id="fumadores" formControlName="fumadores"/><br />
+  <!-- Listamos las casas rurales registradas -->
+  <div class="casas-rurales">
+    <h2>Casas rurales en Galicia</h2>
+    <div class="casa-rural" *ngFor="let item of casasRurales">
+      <h2>{{ item.nombre }}</h2>
+      <h3>{{ item.provincia }}</h3>
+      <p>{{ item.direccion }}</p>
+      <p>{{ item.huespedes }} huéspedes máximo</p>
+      <p>{{ item.precio }}€</p>
+      <button type="button" class="btn btn-primary">Reservar</button>
+    </div>
   </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="casaRuralForm.invalid">Registrar</button>
-</form>
+  <hr>
+
+  <button type="button" class="btn btn-info" id="verForm" *ngIf="classReference.logeado" (click)="verFormulario = true">Quieres registrar tu casa rural?</button>
+
+  <!-- Formulario para registrar casa rural -->
+  <div class="casaRuralForm" *ngIf="classReference.logeado">
+    <h2>Registrar casa rural</h2>
+    <form [formGroup]="casaRuralForm" (ngSubmit)="guardarCasaRural()">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" formControlName="nombre" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Provincia</label>
+      <select required name="provincia" class="form-control" formControlName="provincia">
+        <option value="A Coruña">A Coruña</option>
+        <option value="Lugo">Lugo</option>
+        <option value="Ourense">Ourense</option>
+        <option value="Pontevedra">Pontevedra</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Dirección</label>
+      <input type="text" formControlName="direccion" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Teléfono</label>
+      <input type="number" formControlName="tlf" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Precio</label>
+      <input type="number" formControlName="precio" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Huéspedes</label>
+      <input type="number" formControlName="huespedes" class="form-control">
+    </div>
+    <div class="form-check">
+      <label class="form-check-label" for="piscina">Tiene piscina?</label>
+      <input class="form-check-input" type="checkbox" id="piscina" formControlName="piscina"/><br />
+
+      <label class="form-check-label" for="mascotas">Permite mascotas?</label>
+      <input class="form-check-input" type="checkbox" id="mascotas" formControlName="mascotas"/><br />
+
+      <label class="form-check-label" for="fumadores">Permite fumadores?</label>
+      <input class="form-check-input" type="checkbox" id="fumadores" formControlName="fumadores"/><br />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="casaRuralForm.invalid">Registrar</button>
+  </form>
+  </div>
+
 </div>
 
-<h2>Casas rurales registradas:</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Provincia</th>
-              <th>Dirección</th>
-              <th>Teléfono</th>
-              <th>Precio</th>
-              <th>Huéspedes máx.</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr *ngFor="let item of casasRurales">
-              <td>{{item.id}}</td>
-              <td>{{item.nombre}}</td>
-              <td>{{item.provincia}}</td>
-              <td>{{item.direccion}}</td>
-              <td>{{item.tlf}}</td>
-              <td>{{item.precio}}</td>
-              <td>{{item.huespedes}}</td>
-              <td><button type="button" class="btn btn-danger" (click)="eliminar(item)">Eliminar</button>
-                <button type="button" class="btn btn-success" (click)="editar(item)">Editar</button></td>
-            </tr>
-          </tbody>
-        </table>
 
 
-<!-- <div class="ng-container">
-  <div id="frase">
-    <h1>Descubre donde pasarás tu próximo viaje</h1>
-  </div>
 
-  <div id="busqueda" class="m-5">
-    <div class="input-group">
-      <input type="text" id="inputBusqueda" class="form-control" placeholder="Introduce el destino de tu viaje"/>
-      <button class="btn btn-primary" type="button" id="btnBusqueda">Buscar</button>
-    </div>
 
-    <div class="col-12 mt-4" id="datos-busqueda">
-      <form [formGroup]="apartamentoForm">
-        <label for="adultos">Adultos</label>
-        <select id="adultos" class="m-3" formControlName="adultos">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6 o más</option>
-        </select>
-
-        <label for="ninos">Niños</label>
-        <select id="ninos" class="m-3" formControlName="ninos">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6 o más</option>
-        </select>
-      </form>
-    </div>
-  </div>
-
-  <div id="filtros">
-    <h2>Filtros destacados</h2>
-
-    <div class="content-filtros">
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"/>
-        <label class="form-check-label bg-blue" for="flexSwitchCheckDefault">Mostrar sólo disponibles</label>
-      </div>
-
-      <hr />
-
-      <div class="form-check">
-        <label class="form-check-label" for="mascota">Permite mascotas</label>
-        <input class="form-check-input" type="checkbox" id="mascota" /><br />
-
-        <label class="form-check-label" for="piscina">Permite fumadores</label>
-        <input class="form-check-input" type="checkbox" id="fumadores" /><br />
-      </div>
-
-      <hr />
-
-      <label for="maxPrecio" class="form-label">Máximo de precio</label>
-      <input type="range" class="form-range" id="maxPrecio" />
-
-      <hr />
-
-      <button class="btn btn-primary" type="button" id="btnFiltros">
-        Aplicar filtros
-      </button>
-    </div>
-  </div>
-
-  <app-recomendados></app-recomendados>
-</div> -->
 
 <app-footer></app-footer>

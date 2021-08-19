@@ -59,6 +59,47 @@ h1#frase-foto {
 }
 
 
+div#cont-ofertas {
+  grid-area: ofertas;
+  width: 90%;
+  height: auto;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 5vh;
+  justify-content: center;
+  border: 2px solid #1976d2;
+  border-radius: 10px;
+}
+
+h2 {
+  background-color: #1976d2;
+  padding: 10px;
+  width: 100%;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 10px 10px 0px 0px;
+}
+
+h2#titulo {
+  height: 10%;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+div.card {
+  margin: 0 10px 10px 10px;
+  font-family: 'Montserrat', sans-serif;
+  width: 25vh;                          /* CAMBIAR PARA RESPONSIVE, PARA TABLET 20VH*/
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #1976d2;
+}
+
 
 /* Pantalla mediana */
 @media screen and (max-width:1024px) {

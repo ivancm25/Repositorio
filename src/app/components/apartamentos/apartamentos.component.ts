@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApartamentosService } from 'src/app/services/apartamentos/apartamentos.service';
+import { ReservasService } from 'src/app/services/reservas/reservas.service';
 import { HeaderComponent } from '../header/header.component';
 
 @Component({
@@ -10,15 +11,21 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class ApartamentosComponent implements OnInit {
   public apartamentoForm: FormGroup;
-  public headerComponent: HeaderComponent;
+  public reservaForm: FormGroup;
+  public classReference = HeaderComponent;
   apartamento: any;
   apartamentos: any;
-
-  @Output() apartamentoAReservar = new EventEmitter<any>();
+  fechaEntrada: Date | null;
+  fechaSalida: Date | null;
+  reserva: any;
+  reservas: any;
+  verReserva: boolean = false;
+  verFormulario: boolean = false;
 
   constructor(
     public fb: FormBuilder,
-    public apartamentoService: ApartamentosService
+    public apartamentoService: ApartamentosService,
+    public reservaService: ReservasService
   ) { }
 
   public ngOnInit() {
@@ -33,6 +40,12 @@ export class ApartamentosComponent implements OnInit {
       huespedes: ['', Validators.required],
       mascotas: ['', Validators.required],
       fumadores: ['', Validators.required]
+    });
+
+    this.reservaForm = this.fb.group({
+      id : [''],
+      fechaEntrada: ['', Validators.required],
+      fechaSalida: ['', Validators.required]
     });
 
     this.apartamentoService.getAllApartamentos().subscribe(resp => {
@@ -78,10 +91,67 @@ export class ApartamentosComponent implements OnInit {
   }
 
   public estaLogeado() {
-    return this.headerComponent.getLogeado();
+    return this.classReference.logeado;
   }
 
-  public enviarApartamento(apartamento:any) {
-    this.apartamentoAReservar.emit(apartamento);
+
+  public contarDias(fecha1:any, fecha2:any) {
+    var timestamp1 = new Date(fecha1).getTime();
+    var timestamp2 = new Date(fecha2).getTime();
+    var diff = timestamp2 - timestamp1;
+
+    var seconds = diff / 1000;
+    var minutes = seconds / 60;
+    var hours = minutes / 60;
+    var days = hours / 24;
+
+    return days;
+  }
+
+  public comprobarFechas(fecha1:any, fecha2:any) {
+    var timestamp1 = new Date(fecha1).getTime();
+    var timestamp2 = new Date(fecha2).getTime();
+    var diff = timestamp2 - timestamp1;
+
+    if (diff > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public seleccionarApartamento(apartamento:any) {
+    this.apartamento = apartamento;
+  }
+
+  public reservarApartamento(apartamento:any, fecha1:any, fecha2:any) {
+    let fechaActual: Date = new Date();
+    console.log(this.classReference.usuarioRegistrado);
+    console.log(apartamento);
+    this.reserva.apartamento = apartamento;
+    this.reserva.fechaRealizada = fechaActual;
+    this.reserva.fechaReservaEntrada = fecha1;
+    this.reserva.fechaReservaSalida = fecha2;
+    this.reserva.usuario = this.classReference.usuarioRegistrado;
+    console.log(this.reserva);
+    this.reservaService.saveReserva(this.reserva).subscribe(resp=>{
+      this.reservas = this.reservas.filter((reserva: { id: any; })=> resp.id != reserva.id);
+      this.reservas.push(resp);
+    },
+      error=>{ console.error(error) }
+    );
   }
 }
+
+
+export class Reserva {
+  constructor(
+      public usuario: any,
+      public fechaRealizada: any,
+      public fechaReservaEntrada: any,
+      public fechaReservaSalida: any,
+      public precio: any,
+      public apartamento: any
+  ) { }
+}
+

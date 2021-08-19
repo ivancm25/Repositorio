@@ -1,18 +1,14 @@
-div.ng-container {
-  width: 70%;
-  margin: 0px 5vw 30px 15vw;
-  border-radius: 10px;
-  padding: 10px;
-  display: grid;
-  grid-template-areas: "busqueda busqueda frase"
-                       "resultados resultados filtros";
-  justify-content: space-around;
-}
-
-.apartamentoForm {
+div.apartamentoForm {
+  background-color: rgba(23, 130, 230, 0.397);
+  text-align: initial;
+  margin-top: 15px;
   border: 2px solid var(--azul);
 }
 
+div.container {
+  text-align: center;
+  width: 90%;
+}
 
 h2 {
   font-family: 'Montserrat', sans-serif;
@@ -21,6 +17,11 @@ h2 {
   width: 100%;
   color: white;
   padding: 10px;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
 }
 
 label {
@@ -62,12 +63,20 @@ div.apartamentos {
   margin-bottom: 5vh;
   border: 2px solid #1976d2;
   border-radius: 10px;
+  justify-content: space-around;
+}
+
+button {
+  margin: 10px;
 }
 
 div.apartamento {
   font-family: 'Montserrat', sans-serif;
-  width: 50%;
+  width: 35%;
   text-align: center;
   border-radius: 10px;
   border: 1px solid #1976d2;
+  margin-bottom: 10px;
 }
+
+

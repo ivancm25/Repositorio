@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CasasRuralesService } from 'src/app/services/casas-rurales/casas-rurales.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-casas-rurales',
@@ -10,8 +11,9 @@ import { CasasRuralesService } from 'src/app/services/casas-rurales/casas-rurale
 export class CasasRuralesComponent implements OnInit {
 
   public casaRuralForm: FormGroup;
-
+  public classReference = HeaderComponent;
   casasRurales: any;
+  verFormulario: boolean = false;
 
   constructor(
     public fb: FormBuilder,

@@ -23,6 +23,8 @@ import { CasasRuralesComponent } from './components/casas-rurales/casas-rurales.
 import { AlojamientoDetalleComponent } from './components/alojamiento-detalle/alojamiento-detalle.component';
 import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { HabitacionesComponent } from './components/habitaciones/habitaciones.component';
+import { PanelAdminComponent } from './components/panel-admin/panel-admin.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { HabitacionesComponent } from './components/habitaciones/habitaciones.co
     CasasRuralesComponent,
     AlojamientoDetalleComponent,
     HotelesComponent,
-    HabitacionesComponent
+    HabitacionesComponent,
+    PanelAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { HabitacionesComponent } from './components/habitaciones/habitaciones.co
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

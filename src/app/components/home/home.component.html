@@ -14,7 +14,24 @@
       <!-- <app-datepicker></app-datepicker> -->
     </div>
 
-    <app-ofertas></app-ofertas>
+    <!-- <app-ofertas></app-ofertas> -->
+
+    <div id="cont-ofertas">
+
+      <h2 id="titulo">Ofertas destacadas</h2>
+
+      <div class="card" *ngFor="let item of apartamentos">
+        <div class="card-body">
+          <h2>{{ item.nombre }}</h2>
+          <h3>{{ item.provincia }}</h3>
+          <p>{{ item.direccion }}</p>
+          <p>{{ item.huespedes }} huéspedes máximo</p>
+          <p>{{ item.precio }}€</p>
+          <button type="button" class="btn btn-primary" *ngIf="classReference.logeado">Reservar</button>
+        </div>
+      </div>
+
+    </div>
 
     <app-recomendados></app-recomendados>
 

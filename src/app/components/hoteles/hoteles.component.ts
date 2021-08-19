@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HotelesService } from 'src/app/services/hoteles/hoteles.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-hoteles',
@@ -9,8 +10,9 @@ import { HotelesService } from 'src/app/services/hoteles/hoteles.service';
 })
 export class HotelesComponent implements OnInit {
   public hotelForm: FormGroup;
-
+  public classReference = HeaderComponent;
   hoteles: any;
+  verFormulario: boolean = false;
 
   constructor(
     public fb: FormBuilder,
