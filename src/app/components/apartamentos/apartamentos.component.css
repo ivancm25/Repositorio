@@ -54,7 +54,8 @@ table#tabApartamentos {
 }
 
 div.apartamentos {
-  width: 90%;
+  width: 100%;
+  align-self: center;
   height: auto;
   background-color: white;
   display: flex;

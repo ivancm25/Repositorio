@@ -21,7 +21,7 @@
   <button type="button" class="btn btn-info" id="verForm" *ngIf="classReference.logeado" (click)="verFormulario = true">Quieres registrar tu hotel?</button>
 
   <!-- Formulario para registrar hotel -->
-  <div class="hotelForm" *ngIf="classReference.logeado">
+  <div class="hotelForm" *ngIf="verFormulario">
     <h2>Registrar hotel</h2>
     <form [formGroup]="hotelForm" (ngSubmit)="guardarHotel()">
     <div class="form-group">

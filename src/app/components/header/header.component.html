@@ -71,32 +71,6 @@
 
         <button type="submit" class="btn btn-primary" [disabled]="usuarioForm.invalid">Crear cuenta</button>
       </form>
-
-      <div class="modal-body">
-        <h2>Usuarios registrados:</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Correo electrónico</th>
-              <th>Opciones</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr *ngFor="let item of usuarios">
-              <td>{{item.id}}</td>
-              <td>{{item.nombre}}</td>
-              <td>{{item.apellido}}</td>
-              <td>{{item.email}}</td>
-              <td><button type="button" *ngIf="!classReference.esAdmin" class="btn btn-danger" (click)="eliminar(item)">Eliminar</button>
-                <button type="button" class="btn btn-success" (click)="editar(item)">Editar</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </div>
 
 

@@ -21,7 +21,7 @@
   <button type="button" class="btn btn-info" id="verForm" *ngIf="classReference.logeado" (click)="verFormulario = true">Quieres registrar tu casa rural?</button>
 
   <!-- Formulario para registrar casa rural -->
-  <div class="casaRuralForm" *ngIf="classReference.logeado">
+  <div class="casaRuralForm" *ngIf="verFormulario">
     <h2>Registrar casa rural</h2>
     <form [formGroup]="casaRuralForm" (ngSubmit)="guardarCasaRural()">
     <div class="form-group">

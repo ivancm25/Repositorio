@@ -16,20 +16,25 @@ import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 export class PanelAdminComponent implements OnInit {
   usuarioForm: FormGroup;
   usuarios: any;
+  verFormularioUsuario: boolean = false;
 
   public casaRuralForm: FormGroup;
   casasRurales: any;
+  verFormularioCasaRural: boolean = false;
 
   public hotelForm: FormGroup;
   hoteles: any;
+  verFormularioHotel: boolean = false;
 
   public habitacionForm: FormGroup;
   habitaciones: any;
+  verFormularioHabitacion: boolean = false;
 
   public apartamentoForm: FormGroup;
   public headerComponent: HeaderComponent;
   apartamento: any;
   apartamentos: any;
+  verFormularioApartamento: boolean = false;
 
   public classReference = HeaderComponent;
 
@@ -135,7 +140,8 @@ export class PanelAdminComponent implements OnInit {
       this.usuarios.push(resp);
     },
       error=>{ console.error(error) }
-    )
+    );
+    this.verFormularioUsuario = false;
   }
 
   public eliminarUsuario(usuario:any) {
@@ -150,13 +156,14 @@ export class PanelAdminComponent implements OnInit {
   }
 
   public editarUsuario(usuario:any) {
+    this.verFormularioUsuario = true;
     this.usuarioForm.setValue({
       id : usuario.id,
       nombre : usuario.nombre,
 		  apellido : usuario.apellido,
 		  email : usuario.email,
 		  contrasena : usuario.contrasena
-    })
+    });
   }
 
   public guardarHotel(): void {
@@ -166,7 +173,8 @@ export class PanelAdminComponent implements OnInit {
       this.hoteles.push(resp);
     },
       error=>{ console.error(error) }
-    )
+    );
+    this.verFormularioHotel = false;
   }
 
   public eliminarHotel(hotel:any) {
@@ -181,6 +189,7 @@ export class PanelAdminComponent implements OnInit {
   }
 
   public editarHotel(hotel:any) {
+    this.verFormularioHotel = true;
     this.hotelForm.setValue({
       id : hotel.id,
       nombre: hotel.nombre,
@@ -200,7 +209,8 @@ export class PanelAdminComponent implements OnInit {
       this.apartamentos.push(resp);
     },
       error=>{ console.error(error) }
-    )
+    );
+    this.verFormularioApartamento = false;
   }
 
   public eliminarApartamento(apartamento:any) {
@@ -215,6 +225,7 @@ export class PanelAdminComponent implements OnInit {
   }
 
   public editarApartamento(apartamento:any) {
+    this.verFormularioApartamento = true;
     this.apartamentoForm.setValue({
       id : apartamento.id,
       nombre: apartamento.nombre,
@@ -241,7 +252,8 @@ export class PanelAdminComponent implements OnInit {
       this.casasRurales.push(resp);
     },
       error=>{ console.error(error) }
-    )
+    );
+    this.verFormularioCasaRural = false;
   }
 
   public eliminarCasaRural(casaRural:any) {
@@ -256,6 +268,7 @@ export class PanelAdminComponent implements OnInit {
   }
 
   public editarCasaRural(casaRural:any) {
+    this.verFormularioCasaRural = true;
     this.casaRuralForm.setValue({
       id : casaRural.id,
       nombre: casaRural.nombre,
@@ -278,7 +291,8 @@ export class PanelAdminComponent implements OnInit {
       this.habitaciones.push(resp);
     },
       error=>{ console.error(error) }
-    )
+    );
+    this.verFormularioHabitacion = false;
   }
 
   public eliminarHabitacion(habitacion:any) {
@@ -293,6 +307,7 @@ export class PanelAdminComponent implements OnInit {
   }
 
   public editarHabitacion(habitacion:any) {
+    this.verFormularioHabitacion = true;
     this.habitacionForm.setValue({
       id : habitacion.id,
       nombre: habitacion.nombre,

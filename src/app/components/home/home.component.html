@@ -10,15 +10,13 @@
 
     <div id="banner">
       <h1 id="frase-foto">VIAJA YA</h1>
-
-      <!-- <app-datepicker></app-datepicker> -->
     </div>
 
     <!-- <app-ofertas></app-ofertas> -->
 
-    <div id="cont-ofertas">
+    <div id="cont-apartamentos">
 
-      <h2 id="titulo">Ofertas destacadas</h2>
+      <h2 id="titulo">Apartamentos destacados</h2>
 
       <div class="card" *ngFor="let item of apartamentos">
         <div class="card-body">
@@ -33,7 +31,24 @@
 
     </div>
 
-    <app-recomendados></app-recomendados>
+    <!-- <app-recomendados></app-recomendados> -->
+
+    <div id="cont-casas">
+
+      <h2 id="titulo">Casas rurales destacadas</h2>
+
+      <div class="card" *ngFor="let item of casasRurales">
+        <div class="card-body">
+          <h2>{{ item.nombre }}</h2>
+          <h3>{{ item.provincia }}</h3>
+          <p>{{ item.direccion }}</p>
+          <p>{{ item.huespedes }} huéspedes máximo</p>
+          <p>{{ item.precio }}€</p>
+          <button type="button" class="btn btn-primary" *ngIf="classReference.logeado">Reservar</button>
+        </div>
+      </div>
+
+    </div>
 
   </div>
 
