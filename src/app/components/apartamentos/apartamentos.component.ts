@@ -13,8 +13,10 @@ export class ApartamentosComponent implements OnInit {
   public apartamentoForm: FormGroup;
   public reservaForm: FormGroup;
   public classReference = HeaderComponent;
+  provinciaSeleccionada:any = "todas";
   apartamento: any;
   apartamentos: any;
+  todosApartamentos: any;
   fechaEntrada: Date | null;
   fechaSalida: Date | null;
   reserva: any;
@@ -50,6 +52,7 @@ export class ApartamentosComponent implements OnInit {
 
     this.apartamentoService.getAllApartamentos().subscribe(resp => {
       this.apartamentos = resp;
+      this.todosApartamentos = resp;
     },
       error => { console.error(error) }
     )
@@ -140,6 +143,34 @@ export class ApartamentosComponent implements OnInit {
     },
       error=>{ console.error(error) }
     );
+  }
+
+
+  public actualizarApartamentos() {
+    this.apartamentoService.getAllApartamentos().subscribe(resp => {
+      this.todosApartamentos = resp;
+    },
+      error => { console.error(error) }
+    );
+    this.apartamentos = this.todosApartamentos;
+
+    if (this.provinciaSeleccionada != "todas") {
+      this.apartamentos = this.apartamentos.filter((apartamento:any) => {
+        return apartamento.provincia == this.provinciaSeleccionada;
+      })
+    } else {
+      this.apartamentoService.getAllApartamentos().subscribe(resp => {
+        this.todosApartamentos = resp;
+        this.apartamentos = resp;
+      },
+        error => { console.error(error) }
+      )
+    }
+  }
+
+  public removeFromArr ( arr:any, item:any ) {
+    var i = arr.indexOf( item );
+    arr.splice( i, 1 );
   }
 }
 

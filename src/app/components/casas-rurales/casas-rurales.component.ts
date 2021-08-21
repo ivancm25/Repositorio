@@ -13,7 +13,9 @@ export class CasasRuralesComponent implements OnInit {
   public casaRuralForm: FormGroup;
   public classReference = HeaderComponent;
   casasRurales: any;
+  todasCasas: any;
   verFormulario: boolean = false;
+  provinciaSeleccionada:any = "todas";
 
   constructor(
     public fb: FormBuilder,
@@ -37,6 +39,7 @@ export class CasasRuralesComponent implements OnInit {
 
     this.casaRuralService.getAllCasasRurales().subscribe(resp => {
       this.casasRurales = resp;
+      this.todasCasas = resp;
     },
       error => { console.error(error) }
     )
@@ -76,5 +79,33 @@ export class CasasRuralesComponent implements OnInit {
       mascotas: casaRural.mascotas,
       fumadores: casaRural.fumadores
     })
+  }
+
+
+  public actualizarCasas() {
+    this.casaRuralService.getAllCasasRurales().subscribe(resp => {
+      this.todasCasas = resp;
+    },
+      error => { console.error(error) }
+    );
+    this.casasRurales = this.todasCasas;
+
+    if (this.provinciaSeleccionada != "todas") {
+      this.casasRurales = this.casasRurales.filter((casa:any) => {
+        return casa.provincia == this.provinciaSeleccionada;
+      })
+    } else {
+      this.casaRuralService.getAllCasasRurales().subscribe(resp => {
+        this.casasRurales = resp;
+        this.todasCasas = resp;
+      },
+        error => { console.error(error) }
+      )
+    }
+  }
+
+  public removeFromArr ( arr:any, item:any ) {
+    var i = arr.indexOf( item );
+    arr.splice( i, 1 );
   }
 }

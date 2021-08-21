@@ -75,9 +75,14 @@ div.hotel {
   margin-bottom: 10px;
 }
 
+select.selectProvincia {
+  height: auto;
+  margin-bottom: 15px;
+}
 
-app-footer {
+
+/*app-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-}
+}*/

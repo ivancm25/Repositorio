@@ -6,6 +6,17 @@
   <!-- Listamos las casas rurales registradas -->
   <div class="casas-rurales">
     <h2>Casas rurales en Galicia</h2>
+
+    <h3 class="elegirProvincia">Elige la provincia para buscar una casa rural</h3>
+    <select [(ngModel)]="provinciaSeleccionada" class="selectProvincia">
+      <option value="todas">Todas</option>
+      <option value="A Coruña">A Coruña</option>
+      <option value="Lugo">Lugo</option>
+      <option value="Ourense">Ourense</option>
+      <option value="Pontevedra">Pontevedra</option>
+    </select>
+    <button type="button" class="btn btn-primary" (click)="actualizarCasas()">Buscar</button>
+
     <div class="casa-rural" *ngFor="let item of casasRurales">
       <h2>{{ item.nombre }}</h2>
       <h3>{{ item.provincia }}</h3>

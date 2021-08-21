@@ -6,6 +6,17 @@
   <!-- Listamos los apartamentos listados -->
   <div class="apartamentos">
     <h2>Apartamentos en Galicia</h2>
+
+    <h3 class="elegirProvincia">Elige la provincia para buscar un apartamento</h3>
+    <select [(ngModel)]="provinciaSeleccionada" class="selectProvincia">
+      <option value="todas">Todas</option>
+      <option value="A Coruña">A Coruña</option>
+      <option value="Lugo">Lugo</option>
+      <option value="Ourense">Ourense</option>
+      <option value="Pontevedra">Pontevedra</option>
+    </select>
+    <button type="button" class="btn btn-primary" (click)="actualizarApartamentos()">Buscar</button>
+
     <div class="apartamento" *ngFor="let item of apartamentos">
       <h2>{{ item.nombre }}</h2>
       <h3>{{ item.provincia }}</h3>

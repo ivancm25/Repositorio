@@ -42,6 +42,11 @@ input, select {
   width: 75%;
 }
 
+select.selectProvincia {
+  height: auto;
+  margin-bottom: 15px;
+}
+
 input#mascotas, input#fumadores {
   width: 20px;
   height: 20px;

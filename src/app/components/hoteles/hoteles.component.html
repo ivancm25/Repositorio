@@ -6,13 +6,36 @@
   <!-- Listamos los hoteles listados -->
   <div class="hoteles">
     <h2>Hoteles en Galicia</h2>
+
+    <h3 class="elegirProvincia">Elige la provincia para buscar una casa rural</h3>
+    <select [(ngModel)]="provinciaSeleccionada" class="selectProvincia">
+      <option value="todas">Todas</option>
+      <option value="A Coruña">A Coruña</option>
+      <option value="Lugo">Lugo</option>
+      <option value="Ourense">Ourense</option>
+      <option value="Pontevedra">Pontevedra</option>
+    </select>
+    <button type="button" class="btn btn-primary" (click)="actualizarHoteles()">Buscar</button>
+
     <div class="hotel" *ngFor="let item of hoteles">
       <h2>{{ item.nombre }}</h2>
       <h3>{{ item.provincia }}</h3>
       <p>{{ item.direccion }}</p>
       <p>{{ item.tlf }}</p>
       <p>{{ item.habitaciones }} habitaciones</p>
-      <button type="button" class="btn btn-primary">Ver habitaciones</button>
+      <button type="button" class="btn btn-primary" (click)="cargarHabitaciones(item)">Ver habitaciones</button>
+    </div>
+  </div>
+
+  <div class="habitaciones" *ngIf="verHabitaciones">
+    <hr>
+    <h2>Habitaciones en el hotel</h2>
+    <div class="hotel" *ngFor="let item of habitacionesMostrando">
+      <h2>{{ item.nombre }}</h2>
+      <h3>{{ item.hotel }}</h3>
+      <p>{{ item.precio }}€</p>
+      <p>{{ item.huespedes }} huéspedes</p>
+      <button type="button" class="btn btn-primary">Reservar</button>
     </div>
   </div>
 

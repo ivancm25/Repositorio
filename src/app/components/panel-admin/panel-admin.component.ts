@@ -316,4 +316,12 @@ export class PanelAdminComponent implements OnInit {
       huespedes: habitacion.huespedes
     })
   }
+
+  public comprobarAdmin(usuario: any) {
+    if (usuario.email == "admin@turismogal.com") {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

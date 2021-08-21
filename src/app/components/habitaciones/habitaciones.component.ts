@@ -10,8 +10,7 @@ import { HotelesService } from 'src/app/services/hoteles/hoteles.service';
 })
 export class HabitacionesComponent implements OnInit {
 
-  public habitacionForm: FormGroup;
-
+  habitacionForm: FormGroup;
   habitaciones: any;
   hoteles: any;
 
@@ -44,7 +43,7 @@ export class HabitacionesComponent implements OnInit {
     )
   }
 
-  public guardarHabitacion(): void {
+  guardarHabitacion(): void {
     console.log(this.habitacionForm.value);
     this.habitacionService.saveHabitacion(this.habitacionForm.value).subscribe(resp=>{
       this.habitacionForm.reset();

@@ -73,3 +73,8 @@ div.casa-rural {
   border: 1px solid #1976d2;
   margin-bottom: 10px;
 }
+
+select.selectProvincia {
+  height: auto;
+  margin-bottom: 15px;
+}

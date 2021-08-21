@@ -6,10 +6,6 @@ div#contenedor {
                       "footer";
 }
 
-p {
-  margin: 0;
-}
-
 app-header {
   grid-area: header;
 }
@@ -19,8 +15,6 @@ app-submenu {
 }
 
 app-footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
 }
 
@@ -69,9 +63,9 @@ div#cont-apartamentos, div#cont-casas {
   flex-wrap: wrap;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 5vh;
-  justify-content: center;
   border: 2px solid #1976d2;
   border-radius: 10px;
+  justify-content: space-around;
 }
 
 h2 {
@@ -89,12 +83,12 @@ h3 {
 }
 
 div.card {
-  margin: 0 10px 10px 10px;
   font-family: 'Montserrat', sans-serif;
-  width: 25vh;                          /* CAMBIAR PARA RESPONSIVE, PARA TABLET 20VH*/
+  width: 25vh;
   text-align: center;
   border-radius: 10px;
   border: 1px solid #1976d2;
+  margin-bottom: 10px;
 }
 
 
