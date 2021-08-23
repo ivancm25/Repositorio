@@ -19,7 +19,7 @@ export class CasasRuralesComponent implements OnInit {
   todasCasas: any;
   verFormulario: boolean = false;
   provinciaSeleccionada:any = "todas";
-  reserva: any;
+  reserva: Reserva;
   reservas: any;
   verReserva: boolean = false;
   fechaEntrada: Date | null;
@@ -155,20 +155,33 @@ export class CasasRuralesComponent implements OnInit {
   }
 
   public reservarCasa(casa:any, fecha1:any, fecha2:any) {
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
     let fechaActual: Date = new Date();
-    console.log(this.classReference.usuarioRegistrado);
-    console.log(casa);
-    this.reserva.casaRural = casa;
-    this.reserva.fechaRealizada = fechaActual;
-    this.reserva.fechaReservaEntrada = fecha1;
-    this.reserva.fechaReservaSalida = fecha2;
-    this.reserva.usuario = this.classReference.usuarioRegistrado;
-    console.log(this.reserva);
-    this.reservaService.saveReserva(this.reserva).subscribe(resp=>{
-      this.reservas = this.reservas.filter((reserva: { id: any; })=> resp.id != reserva.id);
-      this.reservas.push(resp);
-    },
+    let precio = this.contarDias(fecha1, fecha2) * casa.precio;
+    fecha1 = fecha1.toLocaleDateString("es-ES", options);
+    fecha2 = fecha2.toLocaleDateString("es-ES", options);
+    this.reserva = new Reserva(this.classReference.usuarioRegistrado, fechaActual, fecha1, fecha2,
+      precio, casa);
+    this.reservaService.saveReserva(this.reserva).subscribe(
       error=>{ console.error(error) }
     );
   }
+}
+
+export class Reserva {
+  constructor(
+      public usuario: any,
+      public fechaRealizada: any,
+      public fechaReservaEntrada: any,
+      public fechaReservaSalida: any,
+      public precio: any,
+      public casaRural: any
+  ) {
+    this.usuario = usuario;
+    this.fechaRealizada = fechaRealizada;
+    this.fechaReservaEntrada = fechaReservaEntrada;
+    this.fechaReservaSalida = fechaReservaSalida;
+    this.precio = precio;
+    this.casaRural = casaRural;
+   }
 }

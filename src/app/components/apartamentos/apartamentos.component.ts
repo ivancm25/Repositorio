@@ -115,9 +115,11 @@ export class ApartamentosComponent implements OnInit {
   public comprobarFechas(fecha1:any, fecha2:any) {
     var timestamp1 = new Date(fecha1).getTime();
     var timestamp2 = new Date(fecha2).getTime();
+    var fechaActual = new Date().getTime();
     var diff = timestamp2 - timestamp1;
+    var diff2 = timestamp1 - fechaActual;
 
-    if (diff > 0) {
+    if (diff > 0 && diff2 > 0) {
       return true;
     } else {
       return false;

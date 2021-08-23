@@ -8,7 +8,7 @@
     <button type="button" class="btn btn-light" id="registro" data-toggle="modal" data-target="#modalRegistro" *ngIf="!classReference.logeado">Regístrate</button>
     <button type="button" class="btn btn-light" id="login" data-toggle="modal" data-target="#modalLogin" *ngIf="!classReference.logeado">Inicia sesión</button>
 
-    <h2 *ngIf="classReference.logeado" class="saludoLogeado">Hola, {{this.classReference.usuarioRegistrado.nombre}}</h2>
+    <a routerLink="/reservas"><h2 *ngIf="classReference.logeado" class="saludoLogeado">Hola, {{this.classReference.usuarioRegistrado.nombre}}</h2></a>
     <button type="button" class="btn btn-danger" id="btnCerrarSesion" *ngIf="classReference.logeado" (click)="cerrarSesion()">Cerrar sesión</button>
     <button type="button" class="btn btn-warning" id="btnAdmin" *ngIf="classReference.esAdmin" routerLink="/panel-admin">Panel de control</button>
   </div>

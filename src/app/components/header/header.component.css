@@ -13,6 +13,7 @@
 
 h2.saludoLogeado {
   font-family: 'Montserrat', sans-serif;
+  color: white;
 }
 
 h2.saludoLogeado, button#btnCerrarSesion, button#btnAdmin {

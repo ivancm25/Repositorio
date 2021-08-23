@@ -1,0 +1,23 @@
+div.container {
+  text-align: center;
+  width: 90%;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 5vh;
+  margin-top: 2vw;
+  border: 2px solid #1976d2;
+  border-radius: 10px;
+  background-color: white;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: x-large;
+  background-color: var(--azul);
+  width: 100%;
+  color: white;
+  padding: 10px;
+}
+
+table {
+  text-align: center;
+}

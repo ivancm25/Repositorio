@@ -26,6 +26,7 @@ import { HabitacionesComponent } from './components/habitaciones/habitaciones.co
 import { PanelAdminComponent } from './components/panel-admin/panel-admin.component';
 import {MatCardModule} from '@angular/material/card';
 import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
+import { ReservasComponent } from './components/reservas/reservas.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
     HotelesComponent,
     HabitacionesComponent,
     PanelAdminComponent,
-    AcercaDeComponent
+    AcercaDeComponent,
+    ReservasComponent
   ],
   imports: [
     BrowserModule,

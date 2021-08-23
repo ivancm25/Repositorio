@@ -10,6 +10,7 @@ import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { HabitacionesComponent } from './components/habitaciones/habitaciones.component';
 import { PanelAdminComponent } from './components/panel-admin/panel-admin.component';
 import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
+import { ReservasComponent } from './components/reservas/reservas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'habitaciones', component: HabitacionesComponent },
   { path: 'panel-admin', component: PanelAdminComponent },
   { path: 'acerca-de', component: AcercaDeComponent },
+  { path: 'reservas', component: ReservasComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
