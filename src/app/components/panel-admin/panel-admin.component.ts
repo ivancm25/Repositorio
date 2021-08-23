@@ -6,6 +6,7 @@ import { HeaderComponent } from '../header/header.component';
 import { CasasRuralesService } from 'src/app/services/casas-rurales/casas-rurales.service';
 import { HabitacionesService } from 'src/app/services/habitaciones/habitaciones.service';
 import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
+import { ReservasService } from 'src/app/services/reservas/reservas.service';
 
 @Component({
   selector: 'app-panel-admin',
@@ -36,6 +37,9 @@ export class PanelAdminComponent implements OnInit {
   apartamentos: any;
   verFormularioApartamento: boolean = false;
 
+  reserva: any;
+  reservas: any;
+
   public classReference = HeaderComponent;
 
   constructor(
@@ -44,7 +48,8 @@ export class PanelAdminComponent implements OnInit {
     public hotelService: HotelesService,
     public habitacionService: HabitacionesService,
     public apartamentoService: ApartamentosService,
-    public casaRuralService: CasasRuralesService
+    public casaRuralService: CasasRuralesService,
+    public reservaService: ReservasService
     ) { }
 
 
@@ -131,6 +136,12 @@ export class PanelAdminComponent implements OnInit {
     },
       error => { console.error(error) }
     )
+
+    this.reservaService.getAllReservas().subscribe(resp => {
+      this.reservas = resp;
+    },
+      error => { console.error(error) }
+    )
   }
 
   public guardarUsuario(): void {
@@ -150,6 +161,16 @@ export class PanelAdminComponent implements OnInit {
         this.usuarios.pop(usuario);
       }
       this.usuarioForm.reset();
+    },
+      error=>{ console.error(error) }
+    )
+  }
+
+  public eliminarReserva(reserva:any) {
+    this.reservaService.deleteReserva(reserva.id).subscribe(resp=>{
+      if (resp === true) {
+        this.reservas.pop(reserva);
+      }
     },
       error=>{ console.error(error) }
     )

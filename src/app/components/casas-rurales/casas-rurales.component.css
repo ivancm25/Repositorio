@@ -56,6 +56,7 @@ div.casas-rurales {
   flex-wrap: wrap;
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 5vh;
+  margin-top: 2vw;
   border: 2px solid #1976d2;
   border-radius: 10px;
   justify-content: space-around;
@@ -74,7 +75,62 @@ div.casa-rural {
   margin-bottom: 10px;
 }
 
+div.busqueda {
+  width: 100%;
+}
+
 select.selectProvincia {
   height: auto;
   margin-bottom: 15px;
+  width: 60%;
+}
+
+
+div.modalReserva {
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+div.modal-content{
+  width: auto;
+  text-align: center;
+  margin: 0;
+  align-self: center;
+}
+
+div.fechas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+div.fechaEntrada {
+  width: 45%;
+}
+
+div.fechaSalida {
+  width: 45%;
+}
+
+div.botonReserva {
+  text-align: center;
+}
+
+h3#textoPrecio {
+  background-color: var(--azul);
+  color: white;
+  font-size: large;
+}
+
+/* Pantalla pequeña */
+@media screen and (max-width:812px) {
+  div.casa-rural {
+    width: 80%;
+  }
+
+  h2, h3 {
+    font-size: medium;
+  }
+
 }

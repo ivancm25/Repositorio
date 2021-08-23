@@ -2,14 +2,16 @@
 <div class="toolbar" role="banner">
   <img alt="Logo Pagina" src="../assets/icons/icon.png"/>
 
-  <h1 id="titulo">Turismo Galicia</h1>
+  <h1 id="titulo" routerLink="/home">Turismo Galicia</h1>
 
-  <button type="button" class="btn btn-light" id="registro" data-toggle="modal" data-target="#modalRegistro" *ngIf="!classReference.logeado">Regístrate</button>
-  <button type="button" class="btn btn-light" id="login" data-toggle="modal" data-target="#modalLogin" *ngIf="!classReference.logeado">Inicia sesión</button>
+  <div class="botones">
+    <button type="button" class="btn btn-light" id="registro" data-toggle="modal" data-target="#modalRegistro" *ngIf="!classReference.logeado">Regístrate</button>
+    <button type="button" class="btn btn-light" id="login" data-toggle="modal" data-target="#modalLogin" *ngIf="!classReference.logeado">Inicia sesión</button>
 
-  <h2 *ngIf="classReference.logeado" class="saludoLogeado">Hola, {{this.classReference.usuarioRegistrado.nombre}}</h2>
-  <button type="button" class="btn btn-danger" id="btnCerrarSesion" *ngIf="classReference.logeado" (click)="cerrarSesion()">Cerrar sesión</button>
-  <button type="button" class="btn btn-warning" id="btnAdmin" *ngIf="classReference.esAdmin" routerLink="/panel-admin">Panel de control</button>
+    <h2 *ngIf="classReference.logeado" class="saludoLogeado">Hola, {{this.classReference.usuarioRegistrado.nombre}}</h2>
+    <button type="button" class="btn btn-danger" id="btnCerrarSesion" *ngIf="classReference.logeado" (click)="cerrarSesion()">Cerrar sesión</button>
+    <button type="button" class="btn btn-warning" id="btnAdmin" *ngIf="classReference.esAdmin" routerLink="/panel-admin">Panel de control</button>
+  </div>
 </div>
 
 

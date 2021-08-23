@@ -41,7 +41,9 @@ div#banner {
 h1#frase-foto {
   font-family: 'Anton', sans-serif;
   font-size: 10vw;
-  margin: 10vh 5vw 10vh 3vw;
+  margin: auto;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
   width: 50%;
   line-height: 1;
   text-align: center;
@@ -99,6 +101,16 @@ div.card {
                        "apartamentos apartamentos"
                        "casas casas";
   }
+}
+
+/* Pantalla pequeña */
+@media screen and (max-width:812px) {
+  div.content {
+    grid-template-areas: "banner banner"
+                       "apartamentos apartamentos"
+                       "casas casas";
+  }
+
 }
 
 

@@ -1,0 +1,51 @@
+div.content {
+  justify-self: center;
+  width: 100%;
+  border: 3px solid var(--azul);
+  align-items: center;
+  justify-content: space-around;
+  justify-items: center;
+  text-justify: auto;
+  background-color: rgba(42, 124, 196, 0.459);
+  display: grid;
+  grid-template-areas: "foto texto"
+                        "frase frase";
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: x-large;
+  background-color: var(--azul);
+  width: 100%;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+div.content img#atardecer {
+  height: 60vh;
+  grid-area: foto;
+  margin: 15px;
+}
+
+div.content div.texto {
+  grid-area: texto;
+  width: 70%;
+}
+
+div.content p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: x-large;
+  line-height: 1.3;
+  color: white;
+}
+
+div.content h2#frase {
+  grid-area: frase;
+  margin-bottom: 0;
+}

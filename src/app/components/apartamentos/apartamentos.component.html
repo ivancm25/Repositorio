@@ -7,15 +7,18 @@
   <div class="apartamentos">
     <h2>Apartamentos en Galicia</h2>
 
-    <h3 class="elegirProvincia">Elige la provincia para buscar un apartamento</h3>
-    <select [(ngModel)]="provinciaSeleccionada" class="selectProvincia">
-      <option value="todas">Todas</option>
-      <option value="A Coruña">A Coruña</option>
-      <option value="Lugo">Lugo</option>
-      <option value="Ourense">Ourense</option>
-      <option value="Pontevedra">Pontevedra</option>
-    </select>
-    <button type="button" class="btn btn-primary" (click)="actualizarApartamentos()">Buscar</button>
+    <div class="busqueda">
+      <h3 class="elegirProvincia">Elige la provincia para buscar un apartamento</h3>
+      <select [(ngModel)]="provinciaSeleccionada" class="selectProvincia">
+        <option value="todas">Todas</option>
+        <option value="A Coruña">A Coruña</option>
+        <option value="Lugo">Lugo</option>
+        <option value="Ourense">Ourense</option>
+        <option value="Pontevedra">Pontevedra</option>
+      </select>
+      <button type="button" class="btn btn-primary" (click)="actualizarApartamentos()">Buscar</button>
+    </div>
+
 
     <div class="apartamento" *ngFor="let item of apartamentos">
       <h2>{{ item.nombre }}</h2>
@@ -23,7 +26,6 @@
       <p>{{ item.direccion }}</p>
       <p>{{ item.huespedes }} huéspedes máximo</p>
       <p>{{ item.precio }}€</p>
-      <button type="button" class="btn btn-primary" *ngIf="classReference.logeado">Reservar</button>
       <button type="button" class="btn btn-dark" id="reserva" data-toggle="modal" (click)="seleccionarApartamento(item)" data-target="#modalReserva">Reservar</button>
     </div>
   </div>
@@ -89,24 +91,31 @@
       </div>
 
       <form [formGroup]="reservaForm" class="modal-body">
-        <div class="fechaEntrada">
-          <h2>Entrada</h2>
-          <mat-card class="demo-inline-calendar-card">
-            <mat-calendar (selectedChange)="fechaEntrada = $event"></mat-calendar>
-          </mat-card>
-          <p>Fecha entrada: {{fechaEntrada}}</p>
+        <div class="fechas">
+          <div class="fechaEntrada">
+            <h2>Entrada</h2>
+            <mat-card class="demo-inline-calendar-card">
+              <mat-calendar (selectedChange)="fechaEntrada = $event"></mat-calendar>
+            </mat-card>
+            <p>Fecha entrada: {{fechaEntrada}}</p>
+          </div>
+
+          <div class="fechaSalida">
+            <h2>Salida</h2>
+            <mat-card class="demo-inline-calendar-card">
+              <mat-calendar (selectedChange)="fechaSalida = $event"></mat-calendar>
+            </mat-card>
+            <p>Fecha salida: {{fechaSalida}}</p>
+          </div>
         </div>
 
-        <div class="fechaSalida">
-          <h2>Salida</h2>
-          <mat-card class="demo-inline-calendar-card">
-            <mat-calendar (selectedChange)="fechaSalida = $event"></mat-calendar>
-          </mat-card>
-          <p>Fecha salida: {{fechaSalida}}</p>
+
+        <div class="botonReserva" *ngIf="comprobarFechas(fechaEntrada, fechaSalida)">
+          <h3>{{this.apartamento.nombre}}</h3>
+          <h3 id="textoPrecio">El precio total serían {{contarDias(fechaEntrada, fechaSalida) * this.apartamento.precio}}€</h3><br>
+          <button type="button" class="btn btn-dark" id="reserva" (click)="reservarApartamento(this.apartamento, fechaEntrada, fechaSalida)">Confirmar</button>
         </div>
 
-        <span *ngIf="comprobarFechas(fechaEntrada, fechaSalida)">El precio total serían {{contarDias(fechaEntrada, fechaSalida) * this.apartamento.precio}}</span>
-        <button type="button" class="btn btn-dark" id="reserva" *ngIf="comprobarFechas(fechaEntrada, fechaSalida)" (click)="reservarApartamento(this.apartamento, fechaEntrada, fechaSalida)">Confirmar</button>
       </form>
     </div>
   </div>

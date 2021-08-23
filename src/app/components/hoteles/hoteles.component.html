@@ -7,15 +7,17 @@
   <div class="hoteles">
     <h2>Hoteles en Galicia</h2>
 
-    <h3 class="elegirProvincia">Elige la provincia para buscar una casa rural</h3>
-    <select [(ngModel)]="provinciaSeleccionada" class="selectProvincia">
-      <option value="todas">Todas</option>
-      <option value="A Coruña">A Coruña</option>
-      <option value="Lugo">Lugo</option>
-      <option value="Ourense">Ourense</option>
-      <option value="Pontevedra">Pontevedra</option>
-    </select>
-    <button type="button" class="btn btn-primary" (click)="actualizarHoteles()">Buscar</button>
+    <div class="busqueda">
+      <h3 class="elegirProvincia">Elige la provincia para buscar una casa rural</h3>
+      <select [(ngModel)]="provinciaSeleccionada" class="selectProvincia">
+        <option value="todas">Todas</option>
+        <option value="A Coruña">A Coruña</option>
+        <option value="Lugo">Lugo</option>
+        <option value="Ourense">Ourense</option>
+        <option value="Pontevedra">Pontevedra</option>
+      </select>
+      <button type="button" class="btn btn-primary" (click)="actualizarHoteles()">Buscar</button>
+    </div>
 
     <div class="hotel" *ngFor="let item of hoteles">
       <h2>{{ item.nombre }}</h2>

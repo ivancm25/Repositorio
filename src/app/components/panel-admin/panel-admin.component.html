@@ -219,6 +219,35 @@
   </div>
 
 
+  <h2>Reservas registradas:</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Correo electrónico usuario</th>
+        <th>Fecha realizada</th>
+        <th>Fecha entrada</th>
+        <th>Fecha salida</th>
+        <th>Precio</th>
+        <th>Alojamiento</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of reservas">
+        <td>{{item.id}}</td>
+        <td>{{item.usuario.email}}</td>
+        <td>{{item.fechaRealizada}}</td>
+        <td>{{item.fechaEntrada}}</td>
+        <td>{{item.fechaSalida}}</td>
+        <td>{{item.precio}}</td>
+        <td>{{item.apartamento.nombre}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="eliminarReserva(item)">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <h2>Hoteles registrados:</h2>
     <table class="table">
       <thead>

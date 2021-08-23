@@ -9,6 +9,7 @@ import { AlojamientoDetalleComponent } from './components/alojamiento-detalle/al
 import { HotelesComponent } from './components/hoteles/hoteles.component';
 import { HabitacionesComponent } from './components/habitaciones/habitaciones.component';
 import { PanelAdminComponent } from './components/panel-admin/panel-admin.component';
+import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'hoteles', component: HotelesComponent },
   { path: 'habitaciones', component: HabitacionesComponent },
   { path: 'panel-admin', component: PanelAdminComponent },
+  { path: 'acerca-de', component: AcercaDeComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
